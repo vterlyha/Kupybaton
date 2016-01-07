@@ -22,13 +22,4 @@ public class Product {
 
 	}
 
-	// public static void main (String [] args) {
-	// List <Integer> n = new ArrayList <Integer>();
-	// n.add(new Integer (3));
-	// ProductExpert p = new ProductExpert();
-	// List <Product> l = p.getProducts(n);
-	// System.out.println(l);
-	// System.out.println(l.size());
-	// }
-
 }

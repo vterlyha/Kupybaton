@@ -15,13 +15,6 @@ public class ListSelect extends HttpServlet {
 		response.setContentType("text/html");
 		ProductExpert pe = new ProductExpert();
 		List <Product> l = pe.getProducts(s);
-			//for(Product x : l) {
-				//int i = x.getId();
-				//String t = x.getName();
-				//PrintWriter out = response.getWriter();
-				//out.print(i + " ");
-				//out.println(t);
-			//}
 		request.setAttribute("styles", l);
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/result.jsp");
 		view.forward(request, response);
