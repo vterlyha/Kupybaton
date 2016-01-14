@@ -7,15 +7,13 @@ import java.util.*;
 
 public class ListSelect extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String listname = request.getParameter("listname");
 		String[] c = request.getParameterValues("product");
-		ArrayList <Integer> s = new ArrayList<Integer>();
-		for (String x : c) {
-			s.add(Integer.parseInt(x));
-		}
 		response.setContentType("text/html");
-		ProductExpert pe = new ProductExpert();
-		List <Product> l = pe.getProducts(s);
+		ListsExpert le = new ListsExpert();
+		List <Product> l = le.getProducts(listname, c);
 		request.setAttribute("styles", l);
+		request.setAttribute("name", listname);
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/result.jsp");
 		view.forward(request, response);
 	}
