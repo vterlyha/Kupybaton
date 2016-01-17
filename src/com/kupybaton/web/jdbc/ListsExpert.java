@@ -1,10 +1,8 @@
-package com.kupybaton;
+package com.kupybaton.web.jdbc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import com.kupybaton.model.Product;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,13 +14,18 @@ public class ListsExpert {
 		Statement stmt = null;
 		Connection conn = null;
 		ResultSet rs = null;
-		List<Product> prod = new ArrayList<Product>();
+		List<Product> prod = new ArrayList<>();
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(URL, USER, PASS);
 			stmt = conn.createStatement();
-			String sql = "CREATE TABLE " + tablename + "( id INT(11), name VARCHAR(60))";
+            /**
+             * you DON'T need to create new table!!!
+             * you will have separate table, called by list name, and this table shall contain products. Are you seriously?
+             * you already have appropriate table for lists => "list" and for products = "product"
+             */
+            String sql = "CREATE TABLE " + tablename + "( id INT(11), name VARCHAR(60))";
 
 			stmt.executeUpdate(sql);
 			for (String one_product_value : product_values) {

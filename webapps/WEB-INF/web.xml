@@ -7,14 +7,14 @@
 
 	<servlet>
 		<servlet-name>ListSelect</servlet-name>
-		<servlet-class>com.kupybaton.ListSelect</servlet-class>
+		<servlet-class>com.kupybaton.web.servlets.ListSelect</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>ListSelect</servlet-name>
 		<url-pattern>/SelectList.do</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>ListOfLists</servlet-name>
 		<servlet-class>com.kupybaton.ListOfLists</servlet-class>
@@ -22,14 +22,10 @@
 
 	<servlet-mapping>
 		<servlet-name>ListOfLists</servlet-name>
-		<url-pattern>/ListOfLists.do</url-pattern>
+		<!--on this url no servlet ever executes-->
+        <url-pattern>/ListOfLists.do</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

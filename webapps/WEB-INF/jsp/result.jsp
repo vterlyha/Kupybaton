@@ -1,13 +1,15 @@
-<%@ page import="com.kupybaton.*" %>
-<%@ page import="java.util.*" %>
+<%@ page import="com.kupybaton.model.Product" %>
+<%@ page import="java.util.List" %>
 <html>
 <head>
-<link rel="stylesheet" href="/Kupybaton/style/Style2.css">
+    <link rel="stylesheet" href="/Kupybaton/style/Style2.css">
 </head>
 <body>
-<h1><center>List of products</center></h1>
+<h1>
+    <center>List of products</center>
+</h1>
 <p>
-<%
+        <%
 List <Product> a = (List <Product>)request.getAttribute("styles");
 String listname = (String)request.getAttribute("name");
 out.print(listname + "<br>");

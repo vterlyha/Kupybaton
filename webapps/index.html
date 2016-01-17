@@ -6,20 +6,26 @@ and open the template in the editor.
 -->
 <html>
 <head>
-<link rel="stylesheet" href="/Kupybaton/style/Style2.css">
+    <link rel="stylesheet" href="/Kupybaton/style/Style2.css">
 </head>
 <body>
-<form method="get" action="SelectList.do">
-	<center>
-		<img src="/Kupybaton/images/KupiBaton.png" width="900" height="600"
-			alt="HTML KupyBaton">
-	</center>
-	<br>
-	<br>
-	<center>
-		<input type="button" class="b1" value="Welcome!!!"
-			onclick="location.href='/Kupybaton/Kupybaton.html'">
-	</center>
+    <form method="get" action="SelectList.do">
+        <!--tag center is deprecated!!! (http://www.w3schools.com/tags/tag_center.asp).-->
+        <!--use style to center image (better implement using css classes)-->
+        <center>
+            <img src="/Kupybaton/images/KupiBaton.png" width="900" height="600"
+                 alt="HTML KupyBaton">
+        </center>
+        <br>
+        <br>
+        <center>
+            <!--choose either action of form or onclick function of input tag-->
+            <!--but not together-->
+            <!--it's prefer to declare JS functions and events in separate JS file-->
+            <input type="button" class="b1" value="Welcome!!!" onclick="location.href='/Kupybaton/Kupybaton.html'"/>
+        </center>
+    <!--don't forget to close tags!!!-->
+    </form>
 </body>
 </html>
 
