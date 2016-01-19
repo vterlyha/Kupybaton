@@ -3,6 +3,7 @@ h1 {
     background: #CD853F;
     font-size: 35pt;
     font-family: "segoe print";
+    text-align: center;
    }
 
 p {
@@ -21,6 +22,12 @@ body {
     margin-left: auto;
     margin-right: auto
    }
+   
+.b2 {
+    background: #FFDEAD;
+    font-size: 15pt;
+    font-family: "segoe print";
+	}
    
 IMG.welcomeImage {
     display: block;
