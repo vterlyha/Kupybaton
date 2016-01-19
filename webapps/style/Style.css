@@ -17,4 +17,14 @@ body {
     background: #FFDEAD;
     font-size: 15pt;
     font-family: "segoe print";
+    display: block;
+    margin-left: auto;
+    margin-right: auto
    }
+   
+IMG.welcomeImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+   
+   
