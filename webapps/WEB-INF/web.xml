@@ -35,6 +35,16 @@
         <url-pattern>/PurchasePage.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>AddOneMoreProduct</servlet-name>
+		<servlet-class>com.kupybaton.web.servlets.AddOneMoreProduct</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AddOneMoreProduct</servlet-name>
+        <url-pattern>/AddOneMoreProduct.do</url-pattern>
+	</servlet-mapping>
+	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>

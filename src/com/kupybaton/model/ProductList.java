@@ -13,6 +13,13 @@ public class ProductList {
 		this.dateCr = dateCr;
 	}
 
+    public ProductList(Integer id, String name, String dateCr, String dateDel) {
+		this.id = id;
+		this.name = name;
+		this.dateCr = dateCr;
+		this.dateDel = dateDel;
+	}
+    
     public void setId(Integer id) {
     	this.id = id;
     }
