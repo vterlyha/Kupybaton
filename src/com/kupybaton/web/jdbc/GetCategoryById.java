@@ -2,23 +2,30 @@ package com.kupybaton.web.jdbc;
 
 import java.sql.*;
 
-import com.kupybaton.model.ProductList;
+import com.kupybaton.model.Category;
 
-public class PurchaseExpert {
-	public void insertList(String listname) {
+public class GetCategoryById {
+	public Category getCategory(Integer category_id) {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";
 		String PASS = "";
 		Statement stmt = null;
 		Connection conn = null;
-		
+		ResultSet categoryValues = null;
+		Category category = null;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(URL, USER, PASS);
 			stmt = conn.createStatement();
-			String sql = "INSERT INTO list (name, date_cr) VALUES ('" + listname + "', NOW());";
-			stmt.executeUpdate(sql);
+			String sql = "SELECT * FROM unit WHERE id = " + category_id;
+			stmt.executeQuery(sql);
+			categoryValues = stmt.executeQuery(sql);
+			while (categoryValues.next()) {
+				int id = categoryValues.getInt("id");
+				String name = categoryValues.getString("name");
+				category = new Category(id, name);
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -39,7 +46,7 @@ public class PurchaseExpert {
 			}
 
 		}
-
+		return category;
 	}
 
 }
