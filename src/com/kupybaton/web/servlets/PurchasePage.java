@@ -1,7 +1,6 @@
 package com.kupybaton.web.servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -13,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.kupybaton.model.Product;
 import com.kupybaton.model.ProductList;
 import com.kupybaton.web.jdbc.AllProductSelectExpert;
+import com.kupybaton.web.jdbc.GetLastCreatedList;
 import com.kupybaton.web.jdbc.PurchaseExpert;
 
 public class PurchasePage extends HttpServlet {
@@ -31,8 +31,9 @@ public class PurchasePage extends HttpServlet {
 		if (listname.length() > 0) {
 			response.setContentType("text/html");
 			PurchaseExpert pe = new PurchaseExpert();
+			GetLastCreatedList gl = new GetLastCreatedList();
 			pe.insertList(listname);
-			List<ProductList> productlist = pe.getList(listname);
+			List<ProductList> productlist = gl.getList();
 			AllProductSelectExpert apse = new AllProductSelectExpert();
 			List <Product> products = apse.getAllProducts();
 			request.setAttribute("products", products);

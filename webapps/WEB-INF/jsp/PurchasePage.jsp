@@ -7,18 +7,28 @@
 <link rel="stylesheet" href="/Kupybaton/style/Style.css">
 </head>
 <body>
-	<form method="post" action="AddOneMoreProduct.do">
+	<form method="post" action="AddFirstProduct.do">
+	
 	<h1 >
 		<c:forEach items="${productlist}" var="list">
+			<c:set var="listId" scope="request" value="${list.getId()}"/> 
 			<c:out value="${list.getName()}" />
 		</c:forEach>
 	</h1>
-			
-	<select name="productName">
+
+	<select name="productName" id="mySelect">
 		<c:forEach items="${products}" var="oneProduct">
-			<option value="${oneProduct}" selected>${oneProduct.getName()}</option>
+			<option value="${oneProduct.getId()}" selected="selected">${oneProduct.getName()}</option>
+			<c:set var="productId" scope="request" value="${document.getId()}"/>
 		</c:forEach>
 	</select>
+	<script>
+	var x = document.getElementById("mySelect").value;
+	</script>
+	
+	
+	<input type="hidden" name="oneProductList" value="${listId}" />
+	<input type="hidden" name="product" value="${x}" />
 	<input type="SUBMIT" class="b2" value="Save">
 	</form>
 
