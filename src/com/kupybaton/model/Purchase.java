@@ -1,59 +1,63 @@
 package com.kupybaton.model;
 
 public class Purchase {
-	
-	private Integer id;
-	private ProductList productlist;
-	private Product product;
-	private Double quantity;
-	private Boolean flag;
-	
-	public Purchase (Integer id, ProductList productlist, Product product, Double quantity, Boolean flag) {
-		this.setId(id);
-		this.setProductlist(productlist);
-		this.setProduct(product);
-		this.setQuantity(quantity);
-		this.setFlag(flag);
-	}
 
-	public Integer getId() {
-		return id;
-	}
+    private Integer id;
+    private ProductList productlist;
+    private Product product;
+    private Double quantity;
+    private Boolean flag;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    // it's prefer to have default constructor
+    public Purchase() {
+    }
 
-	public ProductList getProductlist() {
-		return productlist;
-	}
+    public Purchase(Integer id, ProductList productlist, Product product, Double quantity, Boolean flag) {
+        this.setId(id);
+        this.setProductlist(productlist);
+        this.setProduct(product);
+        this.setQuantity(quantity);
+        this.setFlag(flag);
+    }
 
-	public void setProductlist(ProductList productlist) {
-		this.productlist = productlist;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public Product getProduct() {
-		return product;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setProduct(Product product) {
-		this.product = product;
-	}
+    public ProductList getProductlist() {
+        return productlist;
+    }
 
-	public Double getQuantity() {
-		return quantity;
-	}
+    public void setProductlist(ProductList productlist) {
+        this.productlist = productlist;
+    }
 
-	public void setQuantity(Double quantity) {
-		this.quantity = quantity;
-	}
+    public Product getProduct() {
+        return product;
+    }
 
-	public Boolean getFlag() {
-		return flag;
-	}
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
-	public void setFlag(Boolean flag) {
-		this.flag = flag;
-	}
+    public Double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
+
+    public Boolean getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Boolean flag) {
+        this.flag = flag;
+    }
 
 }

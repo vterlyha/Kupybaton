@@ -1,33 +1,37 @@
 package com.kupybaton.model;
 
 public class ProductList {
-	
+
 	private Integer id;
 	private String name;
-	private String dateCr;
-	private String dateDel;
+	private String dateCreated;
+	private String dateDeleted;
 
-    public ProductList(Integer id, String name, String dateCr) {
+    // it's prefer to have default constructor
+    public ProductList() {
+    }
+
+    public ProductList(Integer id, String name, String dateCreated) {
 		this.id = id;
 		this.name = name;
-		this.dateCr = dateCr;
+		this.dateCreated = dateCreated;
 	}
 
-    public ProductList(Integer id, String name, String dateCr, String dateDel) {
+    public ProductList(Integer id, String name, String dateCreated, String dateDeleted) {
 		this.id = id;
 		this.name = name;
-		this.dateCr = dateCr;
-		this.dateDel = dateDel;
+		this.dateCreated = dateCreated;
+		this.dateDeleted = dateDeleted;
 	}
-    
+
     public void setId(Integer id) {
     	this.id = id;
     }
-    
+
     public void setName(String name) {
     	this.name=name;
     }
-    
+
 	public Integer getId() {
 		return id;
 	}
@@ -36,19 +40,19 @@ public class ProductList {
 		return name;
 	}
 
-	public String getDateCr() {
-		return dateCr;
+	public String getDateCreated() {
+		return dateCreated;
 	}
 
-	public void setDateCr(String dateCr) {
-		this.dateCr = dateCr;
+	public void setDateCreated(String dateCreated) {
+		this.dateCreated = dateCreated;
 	}
 
-	public String getDateDel() {
-		return dateDel;
+	public String getDateDeleted() {
+		return dateDeleted;
 	}
 
-	public void setDateDel(String dateDel) {
-		this.dateDel = dateDel;
+	public void setDateDeleted(String dateDeleted) {
+		this.dateDeleted = dateDeleted;
 	}
 }
