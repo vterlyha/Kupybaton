@@ -18,13 +18,11 @@
 
 	<select name="productName" id="mySelect">
 		<c:forEach items="${products}" var="oneProduct">
-			<option value="${oneProduct.getId()}" selected="selected">${oneProduct.getName()}</option>
-			<c:set var="productId" scope="request" value="${document.getId()}"/>
+			<option value="${oneProduct}" selected="selected">${oneProduct.getName()}</option>
+			<c:set var="productId" scope="request" value="${doneProduct.getId()}"/>
 		</c:forEach>
 	</select>
-	<script>
-	var x = document.getElementById("mySelect").value;
-	</script>
+
 	
 	
 	<input type="hidden" name="oneProductList" value="${listId}" />
