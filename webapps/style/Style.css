@@ -7,7 +7,7 @@ h1 {
    }
 
 p {
-    font-size: 25pt;
+    font-size: 15pt;
    }
 
 body {
@@ -28,7 +28,25 @@ body {
     font-size: 15pt;
     font-family: "segoe print";
 	}
-   
+	
+.b3 {
+    background: #FFDEAD;
+    font-size: 12pt;
+    font-family: "segoe print";
+    margin-top: -30px;
+    margin-bottom: auto;
+    margin-right: 20px;
+    margin-left: 1000px;
+	}
+	
+.b4 {
+    background: #FFDEAD;
+    font-size: 15pt;
+    font-family: "segoe print";
+    margin-left: 800px;
+    margin-top: -195px;
+	}
+	
 IMG.welcomeImage {
     display: block;
     margin-left: auto;

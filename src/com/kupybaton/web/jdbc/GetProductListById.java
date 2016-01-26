@@ -3,11 +3,10 @@ package com.kupybaton.web.jdbc;
 import com.kupybaton.model.ProductList;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
-public class GetListById {
-	public List<ProductList> getList(String listId) {
+
+public class GetProductListById {
+	public ProductList getProductList(Integer listId) {
 
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";
@@ -15,8 +14,7 @@ public class GetListById {
 		Statement stmt = null;
 		Connection conn = null;
 		ResultSet listValues = null;
-		List<ProductList> list = new ArrayList<ProductList>();
-
+		ProductList productList = null;
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -32,8 +30,7 @@ public class GetListById {
 				String name = listValues.getString("name");
 				String dateCreated = listValues.getString("date_cr");
 				String dateDeleted = listValues.getString("date_del");
-
-                list.add(new ProductList(id, name, dateCreated, dateDeleted));
+				productList = new ProductList(id, name, dateCreated, dateDeleted);
 			}
 
 		} catch (SQLException e) {
@@ -55,7 +52,7 @@ public class GetListById {
 			}
 
 		}
-        return list;
+        return productList;
 
 	}
 

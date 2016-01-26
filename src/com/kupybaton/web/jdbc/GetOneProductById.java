@@ -1,9 +1,6 @@
 package com.kupybaton.web.jdbc;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Iterator;
 
 import com.kupybaton.model.Product;
 import com.kupybaton.model.Unit;
@@ -11,35 +8,33 @@ import com.kupybaton.model.Category;
 
 import com.kupybaton.web.jdbc.GetUnitById;
 
-public class GetProductById {
-	public List <Product> getProduct( List <Integer> product_id) {
+public class GetOneProductById {
+	public Product getProduct(Integer productId) {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";
 		String PASS = "";
 		Statement stmt = null;
 		Connection conn = null;
 		ResultSet productValues = null;
-		List <Product> list = new ArrayList<Product>();
+		Product product = null;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(URL, USER, PASS);
 			stmt = conn.createStatement();
-			Iterator<Integer> it = product_id.iterator();
-			while (it.hasNext()) {
-				String sql = "SELECT * FROM product WHERE id = " + it.next();
-				stmt.executeQuery(sql);
-				productValues = stmt.executeQuery(sql);
-				while (productValues.next()) {
-					int id = productValues.getInt("id");
-					String name = productValues.getString("name");
-					int unit_id = productValues.getInt("unit_id");
-					Unit unit = new GetUnitById().getUnit(unit_id);
-					int category_id = productValues.getInt("category_id");
-					Category category = new GetCategoryById().getCategory(category_id);
-					list.add(new Product(id, name, unit, category));
-				}
+			String sql = "SELECT * FROM product WHERE id = " + productId;
+			stmt.executeQuery(sql);
+			productValues = stmt.executeQuery(sql);
+			while (productValues.next()) {
+				int id = productValues.getInt("id");
+				String name = productValues.getString("name");
+				int unit_id = productValues.getInt("unit_id");
+				Unit unit = new GetUnitById().getUnit(unit_id);
+				int category_id = productValues.getInt("category_id");
+				Category category = new GetCategoryById().getCategory(category_id);
+				product = new Product(id, name, unit, category);
 			}
+			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -60,7 +55,7 @@ public class GetProductById {
 			}
 
 		}
-		return list;
+		return product;
 	}
 
 }

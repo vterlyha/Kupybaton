@@ -1,21 +1,23 @@
 package com.kupybaton.web.jdbc;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-public class PurchaseExpert {
-	public void insertList(String listname) {
+public class InsertValuesIntoProductExpert {
+	public void insertIntoProduct(String productName, Integer unitId, Integer categoryId) {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";
 		String PASS = "";
 		Statement stmt = null;
 		Connection conn = null;
 		
-		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(URL, USER, PASS);
 			stmt = conn.createStatement();
-			String sql = "INSERT INTO list (name, date_cr) VALUES ('" + listname + "', NOW());";
+			String sql = "INSERT INTO product (name, category_id, unit_id) VALUES ( '" + productName + "', " + categoryId + ", " + unitId + ")";												
 			stmt.executeUpdate(sql);
 
 		} catch (SQLException e) {
@@ -39,5 +41,4 @@ public class PurchaseExpert {
 		}
 
 	}
-
 }

@@ -55,6 +55,66 @@
         <url-pattern>/AddFirstProduct.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>CreateNewProduct</servlet-name>
+		<servlet-class>com.kupybaton.web.servlets.CreateNewProduct</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CreateNewProduct</servlet-name>
+        <url-pattern>/CreateNewProduct.do</url-pattern>
+	</servlet-mapping>
+			
+	<servlet>
+		<servlet-name>CreateNewUnit</servlet-name>
+		<servlet-class>com.kupybaton.web.servlets.CreateNewUnit</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CreateNewUnit</servlet-name>
+        <url-pattern>/CreateNewUnit.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CreateNewCategory</servlet-name>
+		<servlet-class>com.kupybaton.web.servlets.CreateNewCategory</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CreateNewCategory</servlet-name>
+        <url-pattern>/CreateNewCategory.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>InsertValuesIntoProduct</servlet-name>
+		<servlet-class>com.kupybaton.web.servlets.InsertValuesIntoProduct</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>InsertValuesIntoProduct</servlet-name>
+        <url-pattern>/InsertValuesIntoProduct.do</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<servlet-name>InsertValuesIntoUnit</servlet-name>
+		<servlet-class>com.kupybaton.web.servlets.InsertValuesIntoUnit</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>InsertValuesIntoUnit</servlet-name>
+        <url-pattern>/InsertValuesIntoUnit.do</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<servlet-name>InsertValuesIntoCategory</servlet-name>
+		<servlet-class>com.kupybaton.web.servlets.InsertValuesIntoCategory</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>InsertValuesIntoCategory</servlet-name>
+        <url-pattern>/InsertValuesIntoCategory.do</url-pattern>
+	</servlet-mapping>			
+	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
