@@ -28,16 +28,16 @@ public class InsertValuesIntoProduct extends HttpServlet {
 			Integer categoryId = Integer.valueOf(request.getParameter("categoryId"));
 
 			response.setContentType("text/html");
-			InsertValuesIntoProductExpert ivipe = new InsertValuesIntoProductExpert();
+			InsertValuesIntoProductExpert ivipe = InsertValuesIntoProductExpert.getInsertValuesIntoProductExpert();
 			ivipe.insertIntoProduct(productName, unitId, categoryId);
 
-			GetLastCreatedList glcl = new GetLastCreatedList();
+			GetLastCreatedList glcl = GetLastCreatedList.getGetLastCreatedList();
 			List<ProductList> productlist = glcl.getList();
 
-			GetPurchaseByListId gpbli = new GetPurchaseByListId();
+			GetPurchaseByListId gpbli = GetPurchaseByListId.getGetPurchaseByListId();
 			List<Purchase> chosenProducts = gpbli.getPurchase(productlist.get(0).getId().toString());
 
-			AllProductSelectExpert apse = new AllProductSelectExpert();
+			AllProductSelectExpert apse = AllProductSelectExpert.getAllProductSelectExpert();
 			List<Product> products = apse.getAllProducts();
 
 			List<String> chosenBeforeQuantity = new ArrayList<String>();
@@ -58,13 +58,13 @@ public class InsertValuesIntoProduct extends HttpServlet {
 			String warningMessage = "Product creation failed. Please try one more time";
 			response.setContentType("text/html");
 			
-			GetLastCreatedList glcl = new GetLastCreatedList();
+			GetLastCreatedList glcl = GetLastCreatedList.getGetLastCreatedList();
 			List<ProductList> productlist = glcl.getList();
 
-			GetPurchaseByListId gpbli = new GetPurchaseByListId();
+			GetPurchaseByListId gpbli = GetPurchaseByListId.getGetPurchaseByListId();
 			List<Purchase> chosenProducts = gpbli.getPurchase(productlist.get(0).getId().toString());
 
-			AllProductSelectExpert apse = new AllProductSelectExpert();
+			AllProductSelectExpert apse = AllProductSelectExpert.getAllProductSelectExpert();
 			List<Product> products = apse.getAllProducts();
 
 			List<String> chosenBeforeQuantity = new ArrayList<String>();

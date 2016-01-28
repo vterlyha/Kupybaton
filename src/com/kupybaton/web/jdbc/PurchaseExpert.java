@@ -3,6 +3,21 @@ package com.kupybaton.web.jdbc;
 import java.sql.*;
 
 public class PurchaseExpert {
+	
+	private static PurchaseExpert purchaseExpert;
+	
+	private PurchaseExpert() {
+		
+	}
+	
+	public static PurchaseExpert getPurchaseExpert() {
+		if (purchaseExpert == null) {
+			purchaseExpert = new PurchaseExpert();
+		}
+		
+		return purchaseExpert;
+	}
+	
 	public void insertList(String listname) {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";

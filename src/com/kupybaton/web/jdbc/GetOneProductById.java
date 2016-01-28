@@ -9,6 +9,21 @@ import com.kupybaton.model.Category;
 import com.kupybaton.web.jdbc.GetUnitById;
 
 public class GetOneProductById {
+	
+	private static GetOneProductById getOneProductById;
+
+	private GetOneProductById() {
+		
+	}
+	
+	public static GetOneProductById getGetOneProductById() {
+		if (getOneProductById == null) {
+			getOneProductById = new GetOneProductById();
+		}
+		
+		return getOneProductById;
+	}
+	
 	public Product getProduct(Integer productId) {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";
@@ -29,9 +44,9 @@ public class GetOneProductById {
 				int id = productValues.getInt("id");
 				String name = productValues.getString("name");
 				int unit_id = productValues.getInt("unit_id");
-				Unit unit = new GetUnitById().getUnit(unit_id);
+				Unit unit = GetUnitById.getGetUnitById().getUnit(unit_id);
 				int category_id = productValues.getInt("category_id");
-				Category category = new GetCategoryById().getCategory(category_id);
+				Category category = GetCategoryById.getGetCategoryById().getCategory(category_id);
 				product = new Product(id, name, unit, category);
 			}
 			

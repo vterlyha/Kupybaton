@@ -11,6 +11,21 @@ import java.util.List;
 import com.kupybaton.model.Unit;
 
 public class AllUnitSelectExpert {
+	
+	private static AllUnitSelectExpert allunitselectexpert;
+	
+	private AllUnitSelectExpert() {
+		
+	}
+	
+	public static AllUnitSelectExpert getAllUnitSelectExpert () {
+		if (allunitselectexpert == null) {
+			allunitselectexpert = new AllUnitSelectExpert();
+		}
+		
+		return allunitselectexpert;
+	}
+	
 	public List<Unit> getAllUnits() {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";

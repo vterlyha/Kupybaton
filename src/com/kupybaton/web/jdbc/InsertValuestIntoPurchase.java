@@ -6,6 +6,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class InsertValuestIntoPurchase {
+	
+	private static InsertValuestIntoPurchase insertValuesIntoPurchase;
+	
+	private InsertValuestIntoPurchase() {
+		
+	}
+	
+	public static InsertValuestIntoPurchase getInsertValuestIntoPurchase() {
+		if (insertValuesIntoPurchase == null) {
+			insertValuesIntoPurchase = new InsertValuestIntoPurchase();
+		}
+		
+		return insertValuesIntoPurchase;
+	}
+	
 	public void insertIntoPurchase(String listId, Integer productId, String quantity) {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";

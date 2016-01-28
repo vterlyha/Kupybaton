@@ -15,7 +15,7 @@ import java.util.List;
 public class ListSelect extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		response.setContentType("text/html");
-		ListsExpert le = new ListsExpert();
+		ListsExpert le = ListsExpert.getListsExpert();
 		List <ProductList> productlist = le.getLists();
 		request.setAttribute("productlist", productlist);
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/ListSelect.jsp");

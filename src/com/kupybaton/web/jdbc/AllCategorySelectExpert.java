@@ -11,6 +11,20 @@ import java.util.List;
 import com.kupybaton.model.Category;
 
 public class AllCategorySelectExpert {
+	private static AllCategorySelectExpert allcategoryselectexpert;
+	
+	private AllCategorySelectExpert() {
+		
+	}
+	
+	public static AllCategorySelectExpert getAllCategorySelectExpert() {
+		if (allcategoryselectexpert == null) {
+			allcategoryselectexpert = new AllCategorySelectExpert();
+		}
+		
+		return allcategoryselectexpert;
+	}
+	
 	public List<Category> getAllCategories() {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";

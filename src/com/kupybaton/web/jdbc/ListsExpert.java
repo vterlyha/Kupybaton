@@ -7,6 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListsExpert {
+	
+	private static ListsExpert listsExpert;
+	
+	private ListsExpert() {
+		
+	}
+	
+	public static ListsExpert getListsExpert() {
+		if (listsExpert == null) {
+			listsExpert = new ListsExpert();
+		}
+		
+		return listsExpert;
+	}
+	
 	public List<ProductList> getLists() {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";

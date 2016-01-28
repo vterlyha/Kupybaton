@@ -30,11 +30,11 @@ public class PurchasePage extends HttpServlet {
 		try {
 			if (listname.length() > 0) {
 				response.setContentType("text/html");
-				PurchaseExpert pe = new PurchaseExpert();
-				GetLastCreatedList gl = new GetLastCreatedList();
+				PurchaseExpert pe = PurchaseExpert.getPurchaseExpert();
+				GetLastCreatedList gl = GetLastCreatedList.getGetLastCreatedList();
 				pe.insertList(listname);
 				List<ProductList> productlist = gl.getList();
-				AllProductSelectExpert apse = new AllProductSelectExpert();
+				AllProductSelectExpert apse = AllProductSelectExpert.getAllProductSelectExpert();
 				List<Product> products = apse.getAllProducts();
 				request.setAttribute("products", products);
 				request.setAttribute("productlist", productlist);

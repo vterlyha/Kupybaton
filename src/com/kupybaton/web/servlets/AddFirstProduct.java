@@ -28,16 +28,16 @@ public class AddFirstProduct extends HttpServlet {
         
         response.setContentType("text/html");
         
-        InsertValuestIntoPurchase ivip = new InsertValuestIntoPurchase();
+        InsertValuestIntoPurchase ivip = InsertValuestIntoPurchase.getInsertValuestIntoPurchase();
         ivip.insertIntoPurchase(listId, productId, quantity);
         
-        GetListById gc = new GetListById();
+        GetListById gc = GetListById.getGetListById();
         List<ProductList> productlist = gc.getList(listId);
         
-        AllProductSelectExpert apse = new AllProductSelectExpert();
+        AllProductSelectExpert apse = AllProductSelectExpert.getAllProductSelectExpert();
         List<Product> products = apse.getAllProducts();
         
-        GetPurchaseByListId gpbli = new GetPurchaseByListId();
+        GetPurchaseByListId gpbli = GetPurchaseByListId.getGetPurchaseByListId();
         List <Purchase> chosenProducts = gpbli.getPurchase(listId);
         
         request.setAttribute("products", products);

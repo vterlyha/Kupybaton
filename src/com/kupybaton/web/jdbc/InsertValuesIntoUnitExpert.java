@@ -6,6 +6,22 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class InsertValuesIntoUnitExpert {
+
+	private static InsertValuesIntoUnitExpert insertValuesIntoUnitExpert;
+	
+	private InsertValuesIntoUnitExpert() {
+		
+	}
+	
+	public static InsertValuesIntoUnitExpert getInsertValuesIntoUnitExpert() {
+		if (insertValuesIntoUnitExpert == null) {
+			insertValuesIntoUnitExpert = new InsertValuesIntoUnitExpert();
+		}
+		
+		return insertValuesIntoUnitExpert;
+	}
+	
+	
 	public void insertIntoUnit(String unitName) {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";

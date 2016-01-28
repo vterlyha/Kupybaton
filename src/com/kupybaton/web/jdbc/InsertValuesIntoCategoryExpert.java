@@ -6,6 +6,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class InsertValuesIntoCategoryExpert {
+	
+private static InsertValuesIntoCategoryExpert insertValuesIntoCategoryExpert;
+	
+	private InsertValuesIntoCategoryExpert() {
+		
+	}
+	
+	public static InsertValuesIntoCategoryExpert getInsertValuesIntoCategoryExpert() {
+		if (insertValuesIntoCategoryExpert == null) {
+			insertValuesIntoCategoryExpert = new InsertValuesIntoCategoryExpert();
+		}
+		
+		return insertValuesIntoCategoryExpert;
+	}
+	
 	public void insertIntoCategory(String categoryName) {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";

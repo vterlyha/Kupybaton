@@ -5,6 +5,21 @@ import java.sql.*;
 import com.kupybaton.model.Category;
 
 public class GetCategoryById {
+	
+private static GetCategoryById getCategoryById;
+	
+	private GetCategoryById() {
+		
+	}
+	
+	public static GetCategoryById getGetCategoryById() {
+		if (getCategoryById == null) {
+			getCategoryById = new GetCategoryById();
+		}
+		
+		return getCategoryById;
+	}
+	
 	public Category getCategory(Integer category_id) {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";

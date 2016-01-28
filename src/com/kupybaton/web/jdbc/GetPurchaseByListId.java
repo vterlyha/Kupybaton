@@ -11,6 +11,21 @@ import com.kupybaton.model.Purchase;
 import com.kupybaton.web.jdbc.GetProductListById;
 
 public class GetPurchaseByListId {
+	
+	private static GetPurchaseByListId getPurchaseByListId;
+	
+	private GetPurchaseByListId() {
+		
+	}
+	
+	public static GetPurchaseByListId getGetPurchaseByListId() {
+		if (getPurchaseByListId == null) {
+			getPurchaseByListId = new GetPurchaseByListId();
+		}
+		
+		return getPurchaseByListId;
+	}
+	
 	public List <Purchase> getPurchase(String list_id) {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";
@@ -33,7 +48,7 @@ public class GetPurchaseByListId {
 				int listId = purchaseValues.getInt("list_id");
 				ProductList productList = new GetProductListById().getProductList(listId);
 				int productId = purchaseValues.getInt("product_id");
-				Product product = new GetOneProductById().getProduct(productId);
+				Product product = GetOneProductById.getGetOneProductById().getProduct(productId);
 				Double quantity = purchaseValues.getDouble("quantity");
 				Boolean flag = purchaseValues.getBoolean("flag");
 				purchaseList.add(new Purchase(id, productList, product, quantity, flag));

@@ -5,6 +5,21 @@ import java.sql.*;
 import com.kupybaton.model.Unit;
 
 public class GetUnitById {
+	
+	private static GetUnitById getUnitById;
+	
+	private GetUnitById() {
+		
+	}
+	
+	public static GetUnitById getGetUnitById() {
+		if (getUnitById == null) {
+			getUnitById = new GetUnitById();
+		}
+		
+		return getUnitById;
+	}
+	
 	public Unit getUnit(Integer unit_id) {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";

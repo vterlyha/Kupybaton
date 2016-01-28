@@ -7,6 +7,21 @@ import java.util.List;
 import com.kupybaton.model.ProductList;
 
 public class GetLastCreatedList {
+	
+	private static GetLastCreatedList getLastCreatedList;
+	
+	private GetLastCreatedList() {
+		
+	}
+	
+	public static GetLastCreatedList getGetLastCreatedList() {
+		if (getLastCreatedList == null) {
+			getLastCreatedList = new GetLastCreatedList();
+		}
+		
+		return getLastCreatedList;
+	}
+	
 	public List<ProductList> getList() {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";

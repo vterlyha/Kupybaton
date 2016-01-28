@@ -13,6 +13,21 @@ import com.kupybaton.model.Product;
 import com.kupybaton.model.Unit;
 
 public class AllProductSelectExpert {
+	
+	private static AllProductSelectExpert allproductselectexpert;
+	
+	private AllProductSelectExpert() {
+		
+	}
+	
+	public static AllProductSelectExpert getAllProductSelectExpert () {
+		if (allproductselectexpert == null) {
+			allproductselectexpert = new AllProductSelectExpert();
+		}
+		
+		return allproductselectexpert;
+	}
+	
 	public List<Product> getAllProducts() {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";

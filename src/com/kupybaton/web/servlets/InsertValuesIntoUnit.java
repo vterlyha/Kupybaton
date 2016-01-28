@@ -21,13 +21,13 @@ public class InsertValuesIntoUnit extends HttpServlet {
 		try {
 			String unitName = request.getParameter("unitName");
 			response.setContentType("text/html");
-			InsertValuesIntoUnitExpert iviue = new InsertValuesIntoUnitExpert();
+			InsertValuesIntoUnitExpert iviue = InsertValuesIntoUnitExpert.getInsertValuesIntoUnitExpert();
 			iviue.insertIntoUnit(unitName);
 
-			AllUnitSelectExpert ause = new AllUnitSelectExpert();
+			AllUnitSelectExpert ause = AllUnitSelectExpert.getAllUnitSelectExpert();
 			List<Unit> units = ause.getAllUnits();
 
-			AllCategorySelectExpert acse = new AllCategorySelectExpert();
+			AllCategorySelectExpert acse = AllCategorySelectExpert.getAllCategorySelectExpert();
 			List<Category> categories = acse.getAllCategories();
 
 			request.setAttribute("units", units);

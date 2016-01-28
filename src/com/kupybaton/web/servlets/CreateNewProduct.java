@@ -21,10 +21,10 @@ public class CreateNewProduct extends HttpServlet {
 			
 		response.setContentType("text/html");
 		
-		AllUnitSelectExpert ause = new AllUnitSelectExpert();
+		AllUnitSelectExpert ause = AllUnitSelectExpert.getAllUnitSelectExpert();
 		List<Unit> units = ause.getAllUnits();
 		
-		AllCategorySelectExpert acse = new AllCategorySelectExpert();
+		AllCategorySelectExpert acse = AllCategorySelectExpert.getAllCategorySelectExpert();
 		List<Category> categories = acse.getAllCategories();
 
 		request.setAttribute("units", units);
