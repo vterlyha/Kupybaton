@@ -3,9 +3,10 @@
 <head>
     <link rel="stylesheet" href="/Kupybaton/style/Style.css">
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+
 	<script>
 		$(document).ready(function(){
-	    	$("tr").click(function(){
+	    	$("#myTableChoosedProducts tbody tr").click(function(){
 	        	$(this).css({'text-decoration': 'line-through'});
 			});
 		});
@@ -13,7 +14,7 @@
 
 	<script>
 			window.onload = function sortTable() {
-				var rows = $('#myTable tbody  tr').get();
+				var rows = $('#myTableChoosedProducts tbody  tr').get();
 				rows.sort(function(a, b) {
 					var A = $(a).children('td').eq(0).text().toUpperCase();
 					var B = $(b).children('td').eq(0).text().toUpperCase();
@@ -31,11 +32,47 @@
 				});
 
 				$.each(rows, function(index, row) {
-					$('#myTable').children('tbody').append(row);
+					$('#myTableChoosedProducts').children('tbody').append(row);
 				});
 			};
 
 	</script>
+	
+	<script>
+	$(document).ready(function() {
+		$("#myTableChoosedProducts tbody tr").click(function() {
+        	var row = $(this).remove().clone();
+        	$('#myTableUnchoosedProducts').children('tbody').append(row);
+        	
+		});
+	});	
+
+    </script>
+
+	<script>
+		$('#myTableUnchoosedProducts tbody  tr').sortable("update"){
+			var rows = $('#myTableUnchoosedProducts tbody  tr').get();
+			rows.sort(function(a, b) {
+				var A = $(a).children('td').eq(0).text().toUpperCase();
+				var B = $(b).children('td').eq(0).text().toUpperCase();
+
+				if (A < B) {
+					return -1;
+				}
+
+				if (A > B) {
+					return 1;
+				}
+
+				return 0;
+
+			});
+
+			$.each(rows, function(index, row) {
+				$('#myTableUnchoosedProducts').children('tbody').append(row);
+			});
+		};
+</script>
 
 </head>
 
@@ -54,7 +91,7 @@
 			<c:out value="${warningMessage}"/>
 		</p>
 		        
-		<table id="myTable">
+		<table id="myTableChoosedProducts">
 			<tbody>
 				<c:forEach items="${chosenProducts}" var="purchase">
 					<tr>
@@ -66,12 +103,11 @@
 				</c:forEach>
 			</tbody>
 		</table>
-
-		<script>
-			changeTextFormat() {
-				document.getElementById("prodValues").style.color = "red";
-			}
-		</script>
+		
+		<table id="myTableUnchoosedProducts">
+			<tbody>
+			</tbody>
+		</table>
 
 		<select name="productId" id="mySelect">
             <c:forEach items="${products}" var="oneProduct">
