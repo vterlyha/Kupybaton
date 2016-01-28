@@ -18,21 +18,28 @@ import com.kupybaton.web.jdbc.InsertValuesIntoCategoryExpert;
 public class InsertValuesIntoCategory extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-		String unitName = request.getParameter("categoryName");
-		response.setContentType("text/html");
-		InsertValuesIntoCategoryExpert ivice = new InsertValuesIntoCategoryExpert();
-		ivice.insertIntoCategory(unitName);
-		
-		AllUnitSelectExpert ause = new AllUnitSelectExpert();
-		List<Unit> units = ause.getAllUnits();
-		
-		AllCategorySelectExpert acse = new AllCategorySelectExpert();
-		List<Category> categories = acse.getAllCategories();
-		
-		request.setAttribute("units", units);
-		request.setAttribute("categories", categories);
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/CreateNewProduct.jsp");
-		view.forward(request, response);
+		try {
+			String unitName = request.getParameter("categoryName");
+			response.setContentType("text/html");
+			InsertValuesIntoCategoryExpert ivice = new InsertValuesIntoCategoryExpert();
+			ivice.insertIntoCategory(unitName);
+
+			AllUnitSelectExpert ause = new AllUnitSelectExpert();
+			List<Unit> units = ause.getAllUnits();
+
+			AllCategorySelectExpert acse = new AllCategorySelectExpert();
+			List<Category> categories = acse.getAllCategories();
+
+			request.setAttribute("units", units);
+			request.setAttribute("categories", categories);
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/CreateNewProduct.jsp");
+			view.forward(request, response);
+		} catch (Exception e) {
+			String warningMessage = "Category creation failed. Please try one more time";
+			request.setAttribute("warningMessage", warningMessage);
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/CreateNewProduct.jsp");
+			view.forward(request, response);
+		}
 	}
 
 }

@@ -2,7 +2,43 @@
 <html>
 <head>
     <link rel="stylesheet" href="/Kupybaton/style/Style.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+	    	$("tr").click(function(){
+	        	$(this).css({'text-decoration': 'line-through'});
+			});
+		});
+	</script>
+
+	<script>
+			window.onload = function sortTable() {
+				var rows = $('#myTable tbody  tr').get();
+				rows.sort(function(a, b) {
+					var A = $(a).children('td').eq(0).text().toUpperCase();
+					var B = $(b).children('td').eq(0).text().toUpperCase();
+
+					if (A < B) {
+						return -1;
+					}
+
+					if (A > B) {
+						return 1;
+					}
+
+					return 0;
+
+				});
+
+				$.each(rows, function(index, row) {
+					$('#myTable').children('tbody').append(row);
+				});
+			};
+
+	</script>
+
 </head>
+
 
 <body>
 	<form method="post" action="AddOneMoreProduct.do">
@@ -13,19 +49,31 @@
                 <input type="hidden" name="oneproductlist" value="${listId}" />
             </c:forEach>
         </h1>
-        
-		<table>
-			<c:forEach items="${chosenProducts}" var="purchase">
-			<tr>
-				<td><c:out value="${purchase.getProduct().getName()}" /></td>
-				<td><c:out value="${purchase.getQuantity()}" /></td>
-				<c:set var="chosenProductId" scope="request" value="${purchase.getProduct().getId()}"/>
-				<c:set var="chosenQuantity" scope="request" value="${purchase.getQuantity()}"/>
-			</tr>
-			</c:forEach>
-		</table>
+		
+		<p>
+			<c:out value="${warningMessage}"/>
+		</p>
 		        
-        <select name="productId" id="mySelect">
+		<table id="myTable">
+			<tbody>
+				<c:forEach items="${chosenProducts}" var="purchase">
+					<tr>
+						<td><c:out value="${purchase.getProduct().getName()}" /></td>
+						<td><c:out value="${purchase.getQuantity()}" /></td>
+						<c:set var="chosenProductId" scope="request" value="${purchase.getProduct().getId()}"/>
+						<c:set var="chosenQuantity" scope="request" value="${purchase.getQuantity()}"/>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+
+		<script>
+			changeTextFormat() {
+				document.getElementById("prodValues").style.color = "red";
+			}
+		</script>
+
+		<select name="productId" id="mySelect">
             <c:forEach items="${products}" var="oneProduct">
                 <option value="${oneProduct.id}">${oneProduct.name}</option>
             </c:forEach>
@@ -39,10 +87,6 @@
     </form>
     
 	<form method="get" action="CreateNewProduct.do">
-		<input type="hidden" name="oneproductlist" value="${listId}" />
-		<input type="hidden" name="chosenProduct" value="${chosenProductId}" />
-        <input type="hidden" name="chosenQuantity" value="${chosenQuantity}" />
-		<input type="hidden" name="product" value="${productId}" />
 		<input type="SUBMIT" class="b3" value="Create new Product">
 	</form>
     

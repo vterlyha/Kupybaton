@@ -10,9 +10,13 @@
 	
 	<form method="post" action="InsertValuesIntoProduct.do">
 
-	<h1>
-		New Product
-	</h1>
+		<h1>
+			New Product
+		</h1>
+	
+		<p>
+			<c:out value="${warningMessage}"/>
+		</p>
 
 	
 		<p>

@@ -27,18 +27,24 @@ public class PurchasePage extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/CreateNewList.jsp");
 			view.forward(request, response);
 		}
-
-		if (listname.length() > 0) {
-			response.setContentType("text/html");
-			PurchaseExpert pe = new PurchaseExpert();
-			GetLastCreatedList gl = new GetLastCreatedList();
-			pe.insertList(listname);
-			List<ProductList> productlist = gl.getList();
-			AllProductSelectExpert apse = new AllProductSelectExpert();
-			List <Product> products = apse.getAllProducts();
-			request.setAttribute("products", products);
-			request.setAttribute("productlist", productlist);
-			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/AddOneMoreProduct.jsp");
+		try {
+			if (listname.length() > 0) {
+				response.setContentType("text/html");
+				PurchaseExpert pe = new PurchaseExpert();
+				GetLastCreatedList gl = new GetLastCreatedList();
+				pe.insertList(listname);
+				List<ProductList> productlist = gl.getList();
+				AllProductSelectExpert apse = new AllProductSelectExpert();
+				List<Product> products = apse.getAllProducts();
+				request.setAttribute("products", products);
+				request.setAttribute("productlist", productlist);
+				RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/AddOneMoreProduct.jsp");
+				view.forward(request, response);
+			}
+		} catch (Exception e) {
+			String warningMessage = "List creation failed. Please try one more time";
+			request.setAttribute("warningMessage", warningMessage);
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/CreateNewList.jsp");
 			view.forward(request, response);
 		}
 	}

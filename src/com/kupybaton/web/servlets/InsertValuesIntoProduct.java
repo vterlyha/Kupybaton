@@ -22,36 +22,66 @@ import com.kupybaton.web.jdbc.InsertValuesIntoProductExpert;
 public class InsertValuesIntoProduct extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-		String productName = request.getParameter("productName");
-		Integer unitId = Integer.valueOf(request.getParameter("unitId"));
-		Integer categoryId = Integer.valueOf(request.getParameter("categoryId"));
-		
-		response.setContentType("text/html");
-		InsertValuesIntoProductExpert ivipe = new InsertValuesIntoProductExpert();
-		ivipe.insertIntoProduct(productName, unitId, categoryId);
-		
-		GetLastCreatedList glcl = new GetLastCreatedList();
-		List<ProductList> productlist = glcl.getList();
-		
-		GetPurchaseByListId gpbli = new GetPurchaseByListId();
-        List <Purchase> chosenProducts = gpbli.getPurchase(productlist.get(0).getId().toString());
-        
-        AllProductSelectExpert apse = new AllProductSelectExpert();
-       	List<Product> products = apse.getAllProducts();
-       	
-       	List <String> chosenBeforeQuantity = new ArrayList<String>();
-       	Iterator<Purchase> it = chosenProducts.iterator();
-       	while (it.hasNext()) {
-       		chosenBeforeQuantity.add(it.next().getQuantity().toString());
-       	}
-       	
-       	request.setAttribute("chosenBeforeQuantity", chosenBeforeQuantity);
-       	request.setAttribute("chosenProducts", chosenProducts);
-        request.setAttribute("products", products);
-        request.setAttribute("productlist", productlist);
+		try {
+			String productName = request.getParameter("productName");
+			Integer unitId = Integer.valueOf(request.getParameter("unitId"));
+			Integer categoryId = Integer.valueOf(request.getParameter("categoryId"));
 
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/AddOneMoreProduct.jsp");
-		view.forward(request, response);
+			response.setContentType("text/html");
+			InsertValuesIntoProductExpert ivipe = new InsertValuesIntoProductExpert();
+			ivipe.insertIntoProduct(productName, unitId, categoryId);
+
+			GetLastCreatedList glcl = new GetLastCreatedList();
+			List<ProductList> productlist = glcl.getList();
+
+			GetPurchaseByListId gpbli = new GetPurchaseByListId();
+			List<Purchase> chosenProducts = gpbli.getPurchase(productlist.get(0).getId().toString());
+
+			AllProductSelectExpert apse = new AllProductSelectExpert();
+			List<Product> products = apse.getAllProducts();
+
+			List<String> chosenBeforeQuantity = new ArrayList<String>();
+			Iterator<Purchase> it = chosenProducts.iterator();
+			while (it.hasNext()) {
+				chosenBeforeQuantity.add(it.next().getQuantity().toString());
+			}
+
+			request.setAttribute("chosenBeforeQuantity", chosenBeforeQuantity);
+			request.setAttribute("chosenProducts", chosenProducts);
+			request.setAttribute("products", products);
+			request.setAttribute("productlist", productlist);
+
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/AddOneMoreProduct.jsp");
+			view.forward(request, response);
+
+		} catch (Exception e) {
+			String warningMessage = "Product creation failed. Please try one more time";
+			response.setContentType("text/html");
+			
+			GetLastCreatedList glcl = new GetLastCreatedList();
+			List<ProductList> productlist = glcl.getList();
+
+			GetPurchaseByListId gpbli = new GetPurchaseByListId();
+			List<Purchase> chosenProducts = gpbli.getPurchase(productlist.get(0).getId().toString());
+
+			AllProductSelectExpert apse = new AllProductSelectExpert();
+			List<Product> products = apse.getAllProducts();
+
+			List<String> chosenBeforeQuantity = new ArrayList<String>();
+			Iterator<Purchase> it = chosenProducts.iterator();
+			while (it.hasNext()) {
+				chosenBeforeQuantity.add(it.next().getQuantity().toString());
+			}
+
+			request.setAttribute("warningMessage", warningMessage);
+			request.setAttribute("chosenBeforeQuantity", chosenBeforeQuantity);
+			request.setAttribute("chosenProducts", chosenProducts);
+			request.setAttribute("products", products);
+			request.setAttribute("productlist", productlist);
+
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/AddOneMoreProduct.jsp");
+			view.forward(request, response);
+
+		}
 	}
-
 }
