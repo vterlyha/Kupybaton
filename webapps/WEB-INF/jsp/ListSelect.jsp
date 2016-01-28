@@ -5,17 +5,19 @@
 <html>
 <head>
 <link rel="stylesheet" href="/Kupybaton/style/Style.css">
+
 </head>
 <body>
 	<h1>
-		<center>List of products</center>
+		List of products
 	</h1>
-<p>
-		<c:forEach items="${productlist}" var="list">
-			<c:out value="${list.getName()}" />
-			<br>
-		</c:forEach>
-</p>
+<ul>
+<c:forEach items="${productlist}" var="list">
+	<li>
+		<a href="/Kupybaton/GetPurchaseProductsByListId.do?listId=${list.getId()}">${list.getName()}</a>
+	</li>
+	</c:forEach>
+</ul>
 		
 	<form method="get" action="CreateNewList.do">
 		<input type="SUBMIT" class="b1" value="Create new Productlist">

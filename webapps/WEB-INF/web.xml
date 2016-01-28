@@ -113,7 +113,17 @@
 	<servlet-mapping>
 		<servlet-name>InsertValuesIntoCategory</servlet-name>
         <url-pattern>/InsertValuesIntoCategory.do</url-pattern>
-	</servlet-mapping>			
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetPurchaseProductsByListId</servlet-name>
+		<servlet-class>com.kupybaton.web.servlets.GetPurchaseProductsByListId</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>GetPurchaseProductsByListId</servlet-name>
+        <url-pattern>/GetPurchaseProductsByListId.do</url-pattern>
+	</servlet-mapping>				
 	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

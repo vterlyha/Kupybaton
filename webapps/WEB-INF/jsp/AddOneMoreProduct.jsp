@@ -44,6 +44,7 @@
         	var row = $(this).remove().clone();
         	$('#myTableUnchoosedProducts').children('tbody').append(row);
         	
+        	
 		});
 	});	
 
