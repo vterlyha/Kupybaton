@@ -1,24 +1,21 @@
-<%@ page import="com.kupybaton.model.Product"%>
-<%@ page import="java.util.List"%>
-<%@ page import="com.kupybaton.model.ProductList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
-<link rel="stylesheet" href="/Kupybaton/style/Style.css">
+<link rel="stylesheet" href="/Kupybaton/style/style.css">
 </head>
 <body>
-	
+
 	<form method="post" action="InsertValuesIntoProduct.do">
 
 		<h1>
 			New Product
 		</h1>
-	
+
 		<p>
 			<c:out value="${warningMessage}"/>
 		</p>
 
-	
+
 		<p>
 			<input type="text" name="productName" placeholder="name of the product" class = "textfield">
 			Name of the product
@@ -49,10 +46,10 @@
 	<form method="get" action="CreateNewUnit.do">
 		<input type="submit" class="b4" value="Create unit">
 	</form>
-	
+
 	<br>
 	<br>
-	
+
 	<form method="get" action="CreateNewCategory.do">
 		<input type="submit" class="b4" value="Create category">
 	</form>

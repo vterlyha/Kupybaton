@@ -30,7 +30,7 @@ public class GetProductListById {
 				String name = listValues.getString("name");
 				String dateCreated = listValues.getString("date_cr");
 				String dateDeleted = listValues.getString("date_del");
-				productList = new ProductList(id, name, dateCreated, dateDeleted);
+//				productList = new ProductList(id, name, dateCreated, dateDeleted);
 			}
 
 		} catch (SQLException e) {

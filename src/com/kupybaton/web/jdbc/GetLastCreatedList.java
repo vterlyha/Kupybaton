@@ -1,27 +1,27 @@
 package com.kupybaton.web.jdbc;
 
+import com.kupybaton.model.ProductList;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.kupybaton.model.ProductList;
-
 public class GetLastCreatedList {
-	
+
 	private static GetLastCreatedList getLastCreatedList;
-	
+
 	private GetLastCreatedList() {
-		
+
 	}
-	
+
 	public static GetLastCreatedList getGetLastCreatedList() {
 		if (getLastCreatedList == null) {
 			getLastCreatedList = new GetLastCreatedList();
 		}
-		
+
 		return getLastCreatedList;
 	}
-	
+
 	public List<ProductList> getList() {
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
 		String USER = "root";
@@ -30,7 +30,7 @@ public class GetLastCreatedList {
 		Connection conn = null;
 		ResultSet listValues = null;
 		List<ProductList> list = new ArrayList<ProductList>();
-		
+
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(URL, USER, PASS);
@@ -43,7 +43,7 @@ public class GetLastCreatedList {
 				String name = listValues.getString("name");
 				String dateCr = listValues.getString("date_cr");
 				String dateDel = listValues.getString("date_del");
-				list.add(new ProductList(id, name, dateCr, dateDel));
+//				list.add(new ProductList(id, name, dateCr, dateDel));
 			}
 
 		} catch (SQLException e) {
