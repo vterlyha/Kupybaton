@@ -3,85 +3,13 @@
 <head>
     <link rel="stylesheet" href="/Kupybaton/style/style.css">
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
-<<<<<<< HEAD
+
 	<script src="/Kupybaton/js/CrossProductByLine.js"></script>
 	<script src="/Kupybaton/js/SortChoosedProducts.js"></script>
 	<script src="/Kupybaton/js/AddUnchoosedProducts.js"></script>
-=======
 
-	<script>
-		$(document).ready(function(){
-	    	$("#myTableChoosedProducts tbody tr").click(function(){
-	        	$(this).css({'text-decoration': 'line-through'});
-			});
-		});
-	</script>
-
-	<script>
-			window.onload = function sortTable() {
-				var rows = $('#myTableChoosedProducts tbody tr').get();
-				rows.sort(function(a, b) {
-					var A = $(a).children('td').eq(0).text().toUpperCase();
-					var B = $(b).children('td').eq(0).text().toUpperCase();
-
-					if (A < B) {
-						return -1;
-					}
-
-					if (A > B) {
-						return 1;
-					}
-
-					return 0;
-
-				});
-
-				$.each(rows, function(index, row) {
-					$('#myTableChoosedProducts').children('tbody').append(row);
-				});
-			};
-
-	</script>
-
-	<script>
-	$(document).ready(function() {
-		$("#myTableChoosedProducts tbody tr").click(function() {
-        	var row = $(this).remove().clone();
-        	$('#myTableUnchoosedProducts').children('tbody').append(row);
-
-		});
-	});
-
-    </script>
-
-	<script>
-		$('#myTableUnchoosedProducts tbody  tr').sortable("update"){
-			var rows = $('#myTableUnchoosedProducts tbody  tr').get();
-			rows.sort(function(a, b) {
-				var A = $(a).children('td').eq(0).text().toUpperCase();
-				var B = $(b).children('td').eq(0).text().toUpperCase();
-
-				if (A < B) {
-					return -1;
-				}
-
-				if (A > B) {
-					return 1;
-				}
-
-				return 0;
-
-			});
-
-			$.each(rows, function(index, row) {
-				$('#myTableUnchoosedProducts').children('tbody').append(row);
-			});
-		};
-</script>
->>>>>>> mkhrun-master
 
 </head>
-
 
 <body>
 	<form method="post" action="AddOneMoreProduct.do">
@@ -96,13 +24,9 @@
 		<p>
 			<c:out value="${warningMessage}"/>
 		</p>
-<<<<<<< HEAD
-		        
+		
 		<table id="myTableChoosedProducts" class = "myTableChoosedProducts">
-=======
 
-		<table id="myTableChoosedProducts">
->>>>>>> mkhrun-master
 			<tbody>
 				<c:forEach items="${chosenProducts}" var="purchase">
 					<tr>
@@ -114,13 +38,8 @@
 				</c:forEach>
 			</tbody>
 		</table>
-<<<<<<< HEAD
 		
 		<table id="myTableUnchoosedProducts" class ="myTableUnchoosedProducts">
-=======
-
-		<table id="myTableUnchoosedProducts">
->>>>>>> mkhrun-master
 			<tbody>
 			</tbody>
 		</table>
@@ -130,13 +49,9 @@
                 <option value="${oneProduct.id}">${oneProduct.name}</option>
             </c:forEach>
         </select>
-<<<<<<< HEAD
+
         <input type = text name="quantity" placeholder="quantity" class = "textfield">
         
-=======
-        <input type = text name="quantity" placeholder="quantity">
-
->>>>>>> mkhrun-master
         <input type="hidden" name="chosenProduct" value="${chosenProductId}" />
         <input type="hidden" name="chosenQuantity" value="${chosenQuantity}" />
 		<input type="hidden" name="product" value="${productId}" />

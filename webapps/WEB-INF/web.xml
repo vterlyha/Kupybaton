@@ -124,7 +124,7 @@
 		<servlet-name>InsertValuesIntoCategory</servlet-name>
         <url-pattern>/InsertValuesIntoCategory.do</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>GetPurchaseProductsByListId</servlet-name>
 		<servlet-class>com.kupybaton.web.servlets.GetPurchaseProductsByListId</servlet-class>
