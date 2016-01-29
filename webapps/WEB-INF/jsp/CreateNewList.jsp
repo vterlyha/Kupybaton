@@ -14,7 +14,7 @@
 <c:out value="${warningMessage}"/>
 </p>
 <form method="post" action="PurchasePage.do">
-	<p><input type="text" name="listname" placeholder="name of the list">  Name of the list</p>
+	<p><input type="text" name="listname" placeholder="name of the list" class = "textfield">  Name of the list</p>
 	<input type="SUBMIT" class="b2" value="Save">
 </form>
 </body>

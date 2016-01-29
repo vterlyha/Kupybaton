@@ -1,55 +1,95 @@
-
 h1 {
-    background: #CD853F;
-    font-size: 35pt;
-    font-family: "segoe print";
-    text-align: center;
-   }
+	background: #CD853F;
+	font-size: 35pt;
+	font-family: "segoe print";
+	text-align: center;
+}
 
 p {
-    font-size: 15pt;
-   }
+	font-size: 18pt;
+}
 
 body {
-    background: #EEE8AA;
-   }
+	background: #EEE8AA;
+}
 
 .b1 {
-    background: #FFDEAD;
-    font-size: 15pt;
-    font-family: "segoe print";
-    display: block;
-    margin-left: auto;
-    margin-right: auto
-   }
-   
+	background: #FFDEAD;
+	font-size: 15pt;
+	font-family: "segoe print";
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+
 .b2 {
-    background: #FFDEAD;
-    font-size: 15pt;
-    font-family: "segoe print";
-	}
-	
+	background: #FFDEAD;
+	font-size: 15pt;
+	font-family: "segoe print";
+}
+
 .b3 {
-    background: #FFDEAD;
-    font-size: 12pt;
-    font-family: "segoe print";
-    margin-top: -30px;
-    margin-bottom: auto;
-    margin-right: 20px;
-    margin-left: 1000px;
-	}
-	
+	background: #FFDEAD;
+	font-size: 12pt;
+	font-family: "segoe print";
+	margin-top: -30px;
+	margin-bottom: auto;
+	margin-right: 20px;
+	margin-left: 1000px;
+}
+
 .b4 {
-    background: #FFDEAD;
-    font-size: 15pt;
-    font-family: "segoe print";
-    margin-left: 800px;
-    margin-top: -195px;
-	}
-	
+	background: #FFDEAD;
+	font-size: 15pt;
+	font-family: "segoe print";
+	margin-left: 800px;
+	margin-top: -195px;
+}
+
 IMG.welcomeImage {
-    display: block;
-    margin-left: auto;
-    margin-right: auto }
-   
-   
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+
+a {
+	font-size: 20pt;
+	font-family: "Rockwell";
+	color: #484848 ;
+}
+
+.myTableChoosedProducts {
+	font-size: 20pt;
+	font-family: "Rockwell";
+	color: #484848;
+	cursor:pointer;
+}
+
+.myTableUnchoosedProducts {
+	font-size: 20pt;
+	font-family: "Rockwell";
+	color: #484848;
+	cursor:pointer;
+}
+
+.select {
+	font-size: 15pt;
+	font-family: "Rockwell";
+	color: #484848;
+}
+
+.quantity {
+	font-size: 15pt;
+	font-family: "Rockwell";
+	color: #484848;
+}
+
+.textfield {
+	font-size: 15pt;
+	font-family: "Rockwell";
+	color: #484848;
+}
+
+
+
+

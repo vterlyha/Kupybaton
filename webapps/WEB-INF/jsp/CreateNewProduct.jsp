@@ -20,13 +20,13 @@
 
 	
 		<p>
-			<input type="text" name="productName" placeholder="name of the product">
+			<input type="text" name="productName" placeholder="name of the product" class = "textfield">
 			Name of the product
 		</p>
 
 
 		<p>
-			<select name="unitId" id="mySelect">
+			<select name="unitId" id="mySelect" class = "select">
 				<c:forEach items="${units}" var="oneUnit">
 					<option value="${oneUnit.id}">${oneUnit.name}</option>
 				</c:forEach>
@@ -34,7 +34,7 @@
 		</p>
 
 		<p>
-			<select name="categoryId" id="mySelect">
+			<select name="categoryId" id="mySelect" class = "select">
 				<c:forEach items="${categories}" var="oneCategory">
 					<option value="${oneCategory.id}">${oneCategory.name}</option>
 				</c:forEach>

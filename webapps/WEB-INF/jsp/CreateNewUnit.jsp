@@ -13,7 +13,7 @@
 
 	<form method="post" action="InsertValuesIntoUnit.do">
 		<p>
-			<input type="text" name="unitName" placeholder="name of the unit">
+			<input type="text" name="unitName" placeholder="name of the unit" class = "textfield">
 			Name of the unit
 		</p>
 

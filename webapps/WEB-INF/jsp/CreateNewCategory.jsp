@@ -13,7 +13,7 @@
 
 	<form method="post" action="InsertValuesIntoCategory.do">
 		<p>
-			<input type="text" name="categoryName" placeholder="name of the category">
+			<input type="text" name="categoryName" placeholder="name of the category" class = "textfield">
 			Name of the category
 		</p>
 
