@@ -7,21 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GetListById {
-	
+
 	private static GetListById getListById;
-	
+
 	private GetListById() {
-		
+
 	}
-	
+
 	public static GetListById getGetListById() {
 		if (getListById == null) {
 			getListById = new GetListById();
 		}
-		
+
 		return getListById;
 	}
-	
+
 	public List<ProductList> getList(String listId) {
 
 		String URL = "jdbc:mysql://localhost:3306/kupybaton";
@@ -48,7 +48,7 @@ public class GetListById {
 				String dateCreated = listValues.getString("date_cr");
 				String dateDeleted = listValues.getString("date_del");
 
-                list.add(new ProductList(id, name, dateCreated, dateDeleted));
+//                list.add(new ProductList(id, name, dateCreated, dateDeleted));
 			}
 
 		} catch (SQLException e) {

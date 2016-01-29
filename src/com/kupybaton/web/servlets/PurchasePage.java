@@ -1,19 +1,21 @@
 package com.kupybaton.web.servlets;
 
-import java.io.IOException;
-import java.util.List;
-
 import com.kupybaton.model.Product;
 import com.kupybaton.model.ProductList;
+import com.kupybaton.model.Purchase;
 import com.kupybaton.web.jdbc.AllProductSelectExpert;
 import com.kupybaton.web.jdbc.GetLastCreatedList;
 import com.kupybaton.web.jdbc.PurchaseExpert;
+import com.kupybaton.web.jdbc.retrieve.ListsRetriever;
+import com.kupybaton.web.jdbc.retrieve.PurchasesRetriever;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
 
 public class PurchasePage extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -49,4 +51,27 @@ public class PurchasePage extends HttpServlet {
 		}
 	}
 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String listIdString = request.getParameter("listId");
+
+        Integer listId;
+        try {
+            listId = Integer.valueOf(listIdString);
+        } catch (NumberFormatException nfe) {
+            nfe.printStackTrace();
+            response.sendRedirect(request.getContextPath() + "/lists.html?listEditError=true");
+            return;
+        }
+        response.setContentType("text/html");
+
+        ProductList productList = ListsRetriever.getListsRetriever().getProductListById(listId);
+        request.setAttribute("productList", productList);
+
+        List<Purchase> purchaseList = PurchasesRetriever.getListsRetriever().getPurchasesByListId(listId);
+        request.setAttribute("purchaseList", purchaseList);
+
+        RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/purchases.jsp");
+        view.forward(request, response);
+    }
 }
