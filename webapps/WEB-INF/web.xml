@@ -124,7 +124,6 @@
 		<servlet-name>InsertValuesIntoCategory</servlet-name>
         <url-pattern>/InsertValuesIntoCategory.do</url-pattern>
 	</servlet-mapping>
-<<<<<<< HEAD
 	
 	<servlet>
 		<servlet-name>GetPurchaseProductsByListId</servlet-name>
@@ -135,10 +134,7 @@
 		<servlet-name>GetPurchaseProductsByListId</servlet-name>
         <url-pattern>/GetPurchaseProductsByListId.do</url-pattern>
 	</servlet-mapping>				
-	
-=======
 
->>>>>>> mkhrun-master
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
