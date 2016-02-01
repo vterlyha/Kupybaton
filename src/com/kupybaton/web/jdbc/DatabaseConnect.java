@@ -2,6 +2,9 @@ package com.kupybaton.web.jdbc;
 
 import java.sql.*;
 
+import com.kupybaton.model.KupyBaton;
+import com.kupybaton.model.ProductList;
+
 public abstract class DatabaseConnect {
     protected String URL = "jdbc:mysql://localhost:3306/kupybaton";
     protected String USER = "root";
@@ -22,25 +25,40 @@ public abstract class DatabaseConnect {
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASS);
     }
-
-    private Statement getStatement(Connection connection) throws SQLException {
-        return connection.createStatement();
+    
+    private Statement getStatement() throws SQLException {
+    	conn = getConnection();
+        return conn.createStatement();
     }
 
-    private PreparedStatement getPreparedStatement(Connection connection, String sql) throws SQLException {
-        return connection.prepareStatement(sql);
+    private PreparedStatement getPreparedStatement(String sql) throws SQLException {
+    	conn = getConnection();
+        return conn.prepareStatement(sql);
+    }
+    
+    protected PreparedStatement getPreparedStatementForCustomInsert(String sql){
+    	try {
+    		preparedStatement = getPreparedStatement(sql);
+    	} catch (SQLException e) {
+            e.printStackTrace();
+        }
+    	return preparedStatement;
+    }
+    
+    protected void insertIntoDataBase(String sql, KupyBaton tableName) throws SQLException {
+        preparedStatement = getPreparedStatement( sql);
+        preparedStatement.executeUpdate();
     }
 
     protected ResultSet getResultSet(String sql) throws SQLException {
-        conn = getConnection();
-        stmt = getStatement(conn);
+        stmt = getStatement();
         return stmt.executeQuery(sql);
     }
 
     protected ResultSet getResultSetUsingPreparedStatement(String sql, Integer id) throws SQLException {
-        conn = getConnection();
-        preparedStatement = getPreparedStatement(conn, sql);
+        preparedStatement = getPreparedStatement(sql);
         preparedStatement.setInt(1, id);
         return preparedStatement.executeQuery();
     }
+   
 }

@@ -1,14 +1,12 @@
 package com.kupybaton.model;
 
-public class Purchase {
+public class Purchase extends KupyBaton {
 
-    private Integer id;
     private ProductList productlist;
     private Product product;
     private Double quantity;
     private Boolean flag;
 
-    // it's prefer to have default constructor
     public Purchase() {
     }
 
@@ -18,14 +16,6 @@ public class Purchase {
         this.setProduct(product);
         this.setQuantity(quantity);
         this.setFlag(flag);
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public ProductList getProductlist() {

@@ -1,13 +1,10 @@
 package com.kupybaton.model;
 
-public class Product {
+public class Product extends KupyBaton {
 
-    private Integer id;
-    private String name;
     private Unit unit;
     private Category category;
 
-    // it's prefer to have default constructor
     public Product() {
     }
 
@@ -16,22 +13,6 @@ public class Product {
         this.name = name;
         this.unit = unit;
         this.category = category;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Unit getUnit() {
