@@ -3,7 +3,6 @@ package com.kupybaton.web.jdbc;
 import java.sql.*;
 
 import com.kupybaton.model.KupyBaton;
-import com.kupybaton.model.ProductList;
 
 public abstract class DatabaseConnect {
     protected String URL = "jdbc:mysql://localhost:3306/kupybaton";
@@ -46,7 +45,9 @@ public abstract class DatabaseConnect {
     }
     
     protected void insertIntoDataBase(String sql, KupyBaton tableName) throws SQLException {
-        preparedStatement = getPreparedStatement( sql);
+        preparedStatement = getPreparedStatement(sql);
+        preparedStatement.setInt(1, tableName.getId());
+        preparedStatement.setString(2, tableName.getName());
         preparedStatement.executeUpdate();
     }
 
