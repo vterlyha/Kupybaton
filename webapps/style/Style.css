@@ -1,6 +1,8 @@
 body {
     background: #EEE8AA;
     width: 100%;
+    font-size: 20pt;
+    font-family: "segoe print";
 }
 
 .welcome-image {
@@ -110,38 +112,36 @@ p {
     font-size: 15pt;
 }
 
-
-.b1 {
+.button {
     background: #FFDEAD;
-    font-size: 15pt;
-    font-family: "segoe print";
+    margin-bottom: 20px;
+    font: inherit;
+}
+
+.button-center {
     display: block;
     margin-left: auto;
     margin-right: auto
 }
 
-.b2 {
-    background: #FFDEAD;
-    font-size: 15pt;
-    font-family: "segoe print";
-}
-
-.b3 {
-    background: #FFDEAD;
+.b {
     font-size: 12pt;
-    font-family: "segoe print";
-    margin-top: -30px;
-    margin-bottom: auto;
-    margin-right: 20px;
-    margin-left: 1000px;
+    margin: -30px 20px auto 1000px;
 }
 
 .b4 {
-    background: #FFDEAD;
-    font-size: 15pt;
-    font-family: "segoe print";
     margin-left: 800px;
     margin-top: -195px;
+}
+
+input {
+    font: inherit;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.display-block {
+    display: block;
 }
 
 IMG.welcome-image {
