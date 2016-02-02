@@ -1,25 +1,22 @@
 package com.kupybaton.web.servlets;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import com.kupybaton.model.Product;
 import com.kupybaton.model.ProductList;
 import com.kupybaton.model.Purchase;
 import com.kupybaton.web.jdbc.AllProductSelectExpert;
 import com.kupybaton.web.jdbc.GetListById;
-
 import com.kupybaton.web.jdbc.GetPurchaseByListId;
 import com.kupybaton.web.jdbc.InsertValuestIntoPurchase;
-
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class AddOneMoreProduct extends HttpServlet {
@@ -67,21 +64,21 @@ public class AddOneMoreProduct extends HttpServlet {
 			request.setAttribute("productlist", productlist);
 			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/AddOneMoreProduct.jsp");
 			view.forward(request, response);
-			
+
 		} catch (Exception e) {
 			String warningMessage = "Purchase creation failed. Please try one more time";
 			String listId = request.getParameter("oneproductlist");
-			
+
 			GetListById gc = GetListById.getGetListById();
 			List<ProductList> productlist = gc.getList(listId);
 
 			AllProductSelectExpert apse = AllProductSelectExpert.getAllProductSelectExpert();
 			List<Product> products = apse.getAllProducts();
-			
+
 			request.setAttribute("productlist", productlist);
 			request.setAttribute("warningMessage", warningMessage);
 			request.setAttribute("products", products);
-			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/CreateNewList.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/createNewList.jsp");
 			view.forward(request, response);
 		}
 

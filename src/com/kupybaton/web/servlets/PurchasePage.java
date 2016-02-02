@@ -26,7 +26,7 @@ public class PurchasePage extends HttpServlet {
 			response.setContentType("text/html");
 			String warningMessage = "You have to type the name of list!!!";
 			request.setAttribute("warningMessage", warningMessage);
-			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/CreateNewList.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/createNewList.jsp");
 			view.forward(request, response);
 		}
 		try {
@@ -46,7 +46,7 @@ public class PurchasePage extends HttpServlet {
 		} catch (Exception e) {
 			String warningMessage = "List creation failed. Please try one more time";
 			request.setAttribute("warningMessage", warningMessage);
-			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/CreateNewList.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/createNewList.jsp");
 			view.forward(request, response);
 		}
 	}

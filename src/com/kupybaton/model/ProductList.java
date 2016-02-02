@@ -2,7 +2,7 @@ package com.kupybaton.model;
 
 import java.sql.Date;
 
-public class ProductList extends KupyBaton {
+public class ProductList extends BaseModel {
 
 	private Date dateCreated;
 	private Date dateDeleted;
@@ -11,14 +11,14 @@ public class ProductList extends KupyBaton {
     }
 
     public ProductList(Integer id, String name, Date dateCreated) {
-		this.id = id;
-		this.name = name;
+		setId(id);
+		setName(name);
 		this.dateCreated = dateCreated;
 	}
 
     public ProductList(Integer id, String name, Date dateCreated, Date dateDeleted) {
-		this.id = id;
-		this.name = name;
+        setId(id);
+        setName(name);
 		this.dateCreated = dateCreated;
 		this.dateDeleted = dateDeleted;
 	}

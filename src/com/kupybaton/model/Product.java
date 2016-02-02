@@ -1,6 +1,6 @@
 package com.kupybaton.model;
 
-public class Product extends KupyBaton {
+public class Product extends BaseModel {
 
     private Unit unit;
     private Category category;
@@ -9,8 +9,8 @@ public class Product extends KupyBaton {
     }
 
     public Product(Integer id, String name, Unit unit, Category category) {
-        this.id = id;
-        this.name = name;
+        setId(id);
+        setName(name);
         this.unit = unit;
         this.category = category;
     }
