@@ -36,19 +36,7 @@ public class ListsRetriever extends DatabaseConnect {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (stmt != null)
-                    stmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            try {
-                if (conn != null)
-                    conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
+            closeAllDBConnections();
         }
 
         return list;
@@ -66,19 +54,7 @@ public class ListsRetriever extends DatabaseConnect {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (stmt != null)
-                    stmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            try {
-                if (conn != null)
-                    conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
+            closeAllDBConnections();
         }
 
         return list;
@@ -88,26 +64,14 @@ public class ListsRetriever extends DatabaseConnect {
         String sql = "SELECT * FROM list WHERE id = ?";
 
         try {
-            ResultSet listValues = getResultSetUsingPreparedStatement(sql, listId);
+            ResultSet listValues = getResultSetPreparedStatementById(sql, listId);
             listValues.next();
 
             return retrieveProductList(listValues, true);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (stmt != null)
-                    stmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            try {
-                if (conn != null)
-                    conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
+            closeAllDBConnections();
         }
 
         return null;

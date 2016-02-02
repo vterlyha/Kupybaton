@@ -1,6 +1,6 @@
 package com.kupybaton.model;
 
-public class Purchase extends KupyBaton {
+public class Purchase extends BaseModel {
 
     private ProductList productlist;
     private Product product;

@@ -11,17 +11,28 @@
 		<servlet-name>ListSelect</servlet-name>
 		<servlet-class>com.kupybaton.web.servlets.ListSelect</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>ListSelect</servlet-name>
 		<url-pattern>/lists.html</url-pattern>
 	</servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddNewList</servlet-name>
+        <servlet-class>com.kupybaton.web.servlets.CreateNewList</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddNewList</servlet-name>
+        <url-pattern>/createNewList.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewList</servlet-name>
+        <url-pattern>/addNewList.do</url-pattern>
+    </servlet-mapping>
+
 	<servlet>
 		<servlet-name>PurchasePage</servlet-name>
 		<servlet-class>com.kupybaton.web.servlets.PurchasePage</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>PurchasePage</servlet-name>
         <url-pattern>/purchases.html</url-pattern>
@@ -133,7 +144,7 @@
 	<servlet-mapping>
 		<servlet-name>GetPurchaseProductsByListId</servlet-name>
         <url-pattern>/GetPurchaseProductsByListId.do</url-pattern>
-	</servlet-mapping>				
+	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

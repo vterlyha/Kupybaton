@@ -1,13 +1,13 @@
 package com.kupybaton.model;
 
-public class Category extends KupyBaton {
+public class Category extends BaseModel {
 
     public Category() {
     }
 
     public Category(Integer id, String name) {
-        this.id = id;
-        this.name = name;
+        setId(id);
+        setName(name);
     }
 
 }

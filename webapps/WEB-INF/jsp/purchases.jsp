@@ -1,12 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
-  Created by IntelliJ IDEA.
-  User: mkhrun
+  Created by: mkhrun
   Date: 1/29/16
   Time: 11:16
-  To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <jsp:include page="pageContext.jsp"/>
 
 <html>

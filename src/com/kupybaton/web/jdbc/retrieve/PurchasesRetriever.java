@@ -33,7 +33,7 @@ public class PurchasesRetriever extends DatabaseConnect {
         List<Purchase> purchaseList = new ArrayList<>();
 
         try {
-            ResultSet resultSet = getResultSetUsingPreparedStatement(sql, listId);
+            ResultSet resultSet = getResultSetPreparedStatementById(sql, listId);
 
             while (resultSet.next()) {
                 int i = 0;
@@ -67,29 +67,7 @@ public class PurchasesRetriever extends DatabaseConnect {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if (preparedStatement != null) {
-                try {
-                    preparedStatement.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+            closeAllDBConnections();
         }
 
         return purchaseList;

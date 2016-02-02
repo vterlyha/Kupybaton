@@ -2,14 +2,12 @@ package com.kupybaton.web.jdbc;
 
 import java.sql.*;
 
-import com.kupybaton.model.KupyBaton;
-
 public abstract class DatabaseConnect {
-    protected String URL = "jdbc:mysql://localhost:3306/kupybaton";
-    protected String USER = "root";
-    protected String PASS = "";
+    private String URL = "jdbc:mysql://localhost:3306/kupybaton";
+    private String USER = "root";
+    private String PASS = "";
 
-    protected Connection conn;
+    private Connection conn;
     protected Statement stmt;
     protected PreparedStatement preparedStatement;
 
@@ -21,34 +19,47 @@ public abstract class DatabaseConnect {
         }
     }
 
-    private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASS);
+    protected void closeAllDBConnections() {
+        try {
+            if (stmt != null)
+                stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            if (conn != null)
+                conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-    
+
+    private Connection getConnection() throws SQLException {
+        conn = DriverManager.getConnection(URL, USER, PASS);
+        return conn;
+    }
+
     private Statement getStatement() throws SQLException {
-    	conn = getConnection();
-        return conn.createStatement();
+        stmt = getConnection().createStatement();
+        return stmt;
     }
 
     private PreparedStatement getPreparedStatement(String sql) throws SQLException {
-    	conn = getConnection();
-        return conn.prepareStatement(sql);
+        preparedStatement = getConnection().prepareStatement(sql);
+        return preparedStatement;
     }
-    
-    protected PreparedStatement getPreparedStatementForCustomInsert(String sql){
-    	try {
-    		preparedStatement = getPreparedStatement(sql);
-    	} catch (SQLException e) {
-            e.printStackTrace();
-        }
-    	return preparedStatement;
-    }
-    
-    protected void insertIntoDataBase(String sql, KupyBaton tableName) throws SQLException {
-        preparedStatement = getPreparedStatement(sql);
-        preparedStatement.setInt(1, tableName.getId());
-        preparedStatement.setString(2, tableName.getName());
-        preparedStatement.executeUpdate();
+
+    protected void getPreparedStatementForCustomInsert(String sql) throws SQLException {
+        getPreparedStatement(sql);
     }
 
     protected ResultSet getResultSet(String sql) throws SQLException {
@@ -56,10 +67,10 @@ public abstract class DatabaseConnect {
         return stmt.executeQuery(sql);
     }
 
-    protected ResultSet getResultSetUsingPreparedStatement(String sql, Integer id) throws SQLException {
+    protected ResultSet getResultSetPreparedStatementById(String sql, Integer id) throws SQLException {
         preparedStatement = getPreparedStatement(sql);
         preparedStatement.setInt(1, id);
         return preparedStatement.executeQuery();
     }
-   
+
 }
