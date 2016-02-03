@@ -25,7 +25,7 @@ public class ListInserter extends DatabaseConnect {
 		String sql = "INSERT INTO list (name, date_cr) VALUES (?, ?)";
 
 		try {
-			insertIntoDataBase(sql, name);
+			insertIntoNewDataBase(sql, name);
             return true;
 		} catch (SQLException e) {
             e.printStackTrace();
@@ -35,10 +35,28 @@ public class ListInserter extends DatabaseConnect {
         return false;
 	}
 
-	private void insertIntoDataBase(String sql, String name) throws SQLException {
+	public boolean insertDeleteDate(Integer id) {
+		String sql = "INSERT INTO list (date_del) VALUES (NOW())";
+
+		try {
+			insertDeleteDateIntoDataBase(sql);
+            return true;
+		} catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeAllDBConnections();
+        }
+        return false;
+	}
+	private void insertIntoNewDataBase(String sql, String name) throws SQLException {
         getPreparedStatementForCustomInsert(sql);
 		preparedStatement.setString(1, name);
 		preparedStatement.setDate(2, new Date(Calendar.getInstance().getTimeInMillis()));
 		preparedStatement.executeUpdate();
+	}
+	
+	private void insertDeleteDateIntoDataBase(String sql) throws SQLException {
+        getStatementForCustomInsert();
+        stmt.executeUpdate(sql);
 	}
 }

@@ -61,6 +61,10 @@ public abstract class DatabaseConnect {
     protected void getPreparedStatementForCustomInsert(String sql) throws SQLException {
         getPreparedStatement(sql);
     }
+    
+    protected void getStatementForCustomInsert() throws SQLException {
+        getStatement();
+    }
 
     protected ResultSet getResultSet(String sql) throws SQLException {
         stmt = getStatement();
