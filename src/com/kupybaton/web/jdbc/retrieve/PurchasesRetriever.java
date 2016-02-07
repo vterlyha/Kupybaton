@@ -14,7 +14,7 @@ public class PurchasesRetriever extends DatabaseConnect {
     private PurchasesRetriever() {
     }
 
-    public static PurchasesRetriever getListsRetriever() {
+    public static PurchasesRetriever getPurchasesRetriever() {
         if (purchasesRetriever == null) {
             purchasesRetriever = new PurchasesRetriever();
         }

@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1 class="aligh-center">
-            List of products
+            Lists of products
         </h1>
 
         <c:if test="${not empty warningMessage}">

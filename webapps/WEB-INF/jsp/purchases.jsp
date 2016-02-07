@@ -28,8 +28,8 @@
             <tr>
                 <th>Name</th>
                 <th>Unit</th>
-                <th>Edit List</th>
-                <th>Delete list</th>
+                <th>Quantity</th>
+                <th>Product choosed</th>
             </tr>
             </thead>
             <tbody>
@@ -47,6 +47,22 @@
             </c:forEach>
             </tbody>
         </table>
+        <br>
+        
     </div>
+
+	<form method="post" action="${app}/AddProductToPurchase.do">
+		<select name="productId" id="mySelect" class="selectProduct">
+			<c:forEach items="${allProducts}" var="oneProduct">
+				<option value="${oneProduct.id}">${oneProduct.name}</option>
+			</c:forEach>
+		</select>
+	
+		<input type="hidden" name="productlistId" value="${productList.id}" />
+		<input type = text name="quantity" placeholder="quantity" class = "quantitySelect">
+		<input type="submit" class="b2" value="Add product">
+	</form>
+	
+	
 </body>
 </html>

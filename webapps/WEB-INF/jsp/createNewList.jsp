@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <jsp:include page="pageContext.jsp"/>
+
 <html>
 <head>
     <link rel="stylesheet" href="${app}/style/style.css">

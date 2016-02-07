@@ -15,7 +15,7 @@ public class UnitRetriever extends DatabaseConnect {
 	private UnitRetriever() {
 	}
 
-	public static UnitRetriever getListsRetriever() {
+	public static UnitRetriever getUnitRetriever() {
 		if (unitRetriever == null) {
 			unitRetriever = new UnitRetriever();
 		}

@@ -37,6 +37,15 @@
 		<servlet-name>PurchasePage</servlet-name>
         <url-pattern>/purchases.html</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AddProductToPurchase</servlet-name>
+		<servlet-class>com.kupybaton.web.servlets.AddProductToPurchase</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddProductToPurchase</servlet-name>
+        <url-pattern>/AddProductToPurchase.do</url-pattern>
+	</servlet-mapping>
 
     <!--END OF NEW MAPPING-->
 
@@ -49,7 +58,6 @@
 		<servlet-name>CreateNewList</servlet-name>
 		<servlet-class>com.kupybaton.web.servlets.CreateNewList</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>CreateNewList</servlet-name>
         <url-pattern>/CreateNewList.do</url-pattern>
@@ -60,7 +68,6 @@
 		<servlet-name>AddOneMoreProduct</servlet-name>
 		<servlet-class>com.kupybaton.web.servlets.AddOneMoreProduct</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>AddOneMoreProduct</servlet-name>
         <url-pattern>/AddOneMoreProduct.do</url-pattern>
@@ -70,7 +77,6 @@
 		<servlet-name>AddFirstProduct</servlet-name>
 		<servlet-class>com.kupybaton.web.servlets.AddFirstProduct</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>AddFirstProduct</servlet-name>
         <url-pattern>/AddFirstProduct.do</url-pattern>
@@ -80,7 +86,6 @@
 		<servlet-name>CreateNewProduct</servlet-name>
 		<servlet-class>com.kupybaton.web.servlets.CreateNewProduct</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>CreateNewProduct</servlet-name>
         <url-pattern>/CreateNewProduct.do</url-pattern>
@@ -90,7 +95,6 @@
 		<servlet-name>CreateNewUnit</servlet-name>
 		<servlet-class>com.kupybaton.web.servlets.CreateNewUnit</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>CreateNewUnit</servlet-name>
         <url-pattern>/CreateNewUnit.do</url-pattern>
@@ -100,7 +104,6 @@
 		<servlet-name>CreateNewCategory</servlet-name>
 		<servlet-class>com.kupybaton.web.servlets.CreateNewCategory</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>CreateNewCategory</servlet-name>
         <url-pattern>/CreateNewCategory.do</url-pattern>
@@ -110,7 +113,6 @@
 		<servlet-name>InsertValuesIntoProduct</servlet-name>
 		<servlet-class>com.kupybaton.web.servlets.InsertValuesIntoProduct</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>InsertValuesIntoProduct</servlet-name>
         <url-pattern>/InsertValuesIntoProduct.do</url-pattern>
@@ -120,7 +122,6 @@
 		<servlet-name>InsertValuesIntoUnit</servlet-name>
 		<servlet-class>com.kupybaton.web.servlets.InsertValuesIntoUnit</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>InsertValuesIntoUnit</servlet-name>
         <url-pattern>/InsertValuesIntoUnit.do</url-pattern>
@@ -130,7 +131,6 @@
 		<servlet-name>InsertValuesIntoCategory</servlet-name>
 		<servlet-class>com.kupybaton.web.servlets.InsertValuesIntoCategory</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>InsertValuesIntoCategory</servlet-name>
         <url-pattern>/InsertValuesIntoCategory.do</url-pattern>
@@ -140,7 +140,6 @@
 		<servlet-name>GetPurchaseProductsByListId</servlet-name>
 		<servlet-class>com.kupybaton.web.servlets.GetPurchaseProductsByListId</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>GetPurchaseProductsByListId</servlet-name>
         <url-pattern>/GetPurchaseProductsByListId.do</url-pattern>

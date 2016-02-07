@@ -17,7 +17,7 @@ public class ProductRetriever extends DatabaseConnect {
 	private ProductRetriever() {
 	}
 
-	public static ProductRetriever getListsRetriever() {
+	public static ProductRetriever getProductRetriever() {
 		if (productRetriever == null) {
 			productRetriever = new ProductRetriever();
 		}
@@ -26,9 +26,9 @@ public class ProductRetriever extends DatabaseConnect {
 	}
 
     public List <Product> getAllProducts() {
-        String sql = "select pr.*, u.name, c.name" + 
-        		"FROM product AS pr" +
-        		"JOIN unit AS u ON pr.unit_id = u.id" +
+        String sql = "SELECT pr.*, u.name, c.name " + 
+        		"FROM product AS pr " +
+        		"JOIN unit AS u ON pr.unit_id = u.id " +
         		"JOIN category AS c ON pr.category_id = c.id";
 
         try {

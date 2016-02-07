@@ -11,7 +11,7 @@ public class PurchaseInserter extends DatabaseConnect {
 	private PurchaseInserter() {
 	}
 
-	public static PurchaseInserter getListInserter() {
+	public static PurchaseInserter getPurchaseInserter() {
 		if (purchaseInserter == null) {
 			purchaseInserter = new PurchaseInserter();
 		}
@@ -19,8 +19,8 @@ public class PurchaseInserter extends DatabaseConnect {
 		return purchaseInserter;
 	}
 
-	public boolean insertNewPurchase(String name, Integer list_id, Integer product_id, Double quantity) {
-		String sql = "INSERT INTO purchase (list_id, product_id, quantity, flag) VALUES (?, ?, ?, 1)";
+	public boolean insertNewPurchase(Integer list_id, Integer product_id, Double quantity) {
+		String sql = "INSERT INTO purchase (list_id, product_id, quantity, flag) VALUES (?, ?, ?, 0)";
 
 		try {
 			insertIntoPurchase(sql, list_id, product_id, quantity);

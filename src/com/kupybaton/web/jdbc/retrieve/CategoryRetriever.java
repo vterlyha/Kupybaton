@@ -15,7 +15,7 @@ public class CategoryRetriever extends DatabaseConnect {
 	private CategoryRetriever() {
 	}
 
-	public static CategoryRetriever getListsRetriever() {
+	public static CategoryRetriever getCategoryRetriever() {
 		if (productRetriever == null) {
 			productRetriever = new CategoryRetriever();
 		}

@@ -55,7 +55,7 @@
         <input type="hidden" name="chosenProduct" value="${chosenProductId}" />
         <input type="hidden" name="chosenQuantity" value="${chosenQuantity}" />
 		<input type="hidden" name="product" value="${productId}" />
-        <input type="submit" class="b2" value="Save">
+        <input type="submit" class="button" value="Save">
     </form>
 
 	<form method="get" action="CreateNewProduct.do">
