@@ -109,13 +109,14 @@ h1 {
 }
 
 p {
-    font-size: 15pt;
+    font-size: 20pt;
 }
 
 .button {
     background: #FFDEAD;
     margin-bottom: 20px;
     font: inherit;
+    padding: 5px 10px;
 }
 
 .button-center {
@@ -131,7 +132,7 @@ p {
 
 .b4 {
     margin-left: 800px;
-    margin-top: -195px;
+    margin-top: -305px;
 }
 
 input {
@@ -150,8 +151,18 @@ IMG.welcome-image {
     margin-right: auto
 }
 
-select.selectProduct {
+select {
     width: auto;
     font-size: 20pt;
     font-family: "segoe print";
 }
+
+button.createSmth {
+	background: #FFDEAD;
+    font: inherit;
+}
+
+button.createSmth:hover {
+	background: #FFD599;
+}
+

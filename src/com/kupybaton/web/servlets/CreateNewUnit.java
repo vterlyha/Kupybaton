@@ -8,13 +8,67 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kupybaton.model.ProductList;
+import com.kupybaton.web.jdbc.create.UnitInserter;
+import com.kupybaton.web.jdbc.retrieve.ListsRetriever;
+
 
 
 public class CreateNewUnit extends HttpServlet {
+	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String productlistIdString = request.getParameter("productlistId");
+
+        Integer productlistId;
+        try {
+        	productlistId = Integer.valueOf(productlistIdString);
+        } catch (NumberFormatException nfe) {
+            nfe.printStackTrace();
+            response.sendRedirect(request.getContextPath() + "/lists.html?listEditError=true");
+            return;
+        }
+		
 		response.setContentType("text/html");
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/CreateNewUnit.jsp");
+		
+		String createNewUnitErrorString = request.getParameter("createNewUnitError");
+        boolean createNewUnitError = Boolean.valueOf(createNewUnitErrorString);
+        if (createNewUnitError) {
+            String warningMessage = "Unit creation failed. Please try one more time";
+            request.setAttribute("warningMessage", warningMessage);
+        }
+		
+        ProductList productList = ListsRetriever.getListsRetriever().getProductListById(productlistId);
+        request.setAttribute("productList", productList);
+        
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/createNewUnit.jsp");
 		view.forward(request, response);
+	}
+	
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+		String productlistIdString = request.getParameter("productlistId");
+		String unitName = request.getParameter("unitName");
+				
+		Integer productlistId;
+		
+		if (productlistIdString != null & unitName.length()>0) {
+			
+			try {
+				productlistId = Integer.valueOf(productlistIdString);
+				
+				if (UnitInserter.getUnitInserter().insertNewUnit(unitName)) {
+					response.sendRedirect(request.getContextPath() + "/CreateNewProduct.do?productlistId=" + productlistId);
+
+				}
+				
+			} catch (NumberFormatException nfe) {
+				nfe.printStackTrace();
+				response.sendRedirect(request.getContextPath() + "/CreateNewUnit.do?createNewUnitError=true&productlistId=" + productlistIdString);
+				return;
+			}
+		} else {
+			response.sendRedirect(request.getContextPath() + "/CreateNewUnit.do?createNewUnitError=true&productlistId=" + productlistIdString);
+		}
 	}
 
 }

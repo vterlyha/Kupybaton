@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class PurchasePage extends HttpServlet {
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+/*	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 				response.setContentType("text/html");
 				ListInserter listInserter = ListInserter.getListInserter();
 				listInserter.insertNewList(listname);
@@ -29,30 +29,44 @@ public class PurchasePage extends HttpServlet {
 				request.setAttribute("productlist", productlist);
 				RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/AddOneMoreProduct.jsp");
 				view.forward(request, response);
-	}
+	}*/
 
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String listIdString = request.getParameter("listId");
+        String productlistIdString = request.getParameter("productlistId");
 
-        Integer listId;
+        Integer productlistId;
         try {
-            listId = Integer.valueOf(listIdString);
+        	productlistId = Integer.valueOf(productlistIdString);
         } catch (NumberFormatException nfe) {
             nfe.printStackTrace();
             response.sendRedirect(request.getContextPath() + "/lists.html?listEditError=true");
             return;
         }
         response.setContentType("text/html");
-
-        ProductList productList = ListsRetriever.getListsRetriever().getProductListById(listId);
+        
+        String purchaseEditErrorString = request.getParameter("purchaseEditError");
+        boolean purchaseEditError = Boolean.valueOf(purchaseEditErrorString);
+        if (purchaseEditError) {
+            String warningMessage = "Purchase edit failed. Please try one more time";
+            request.setAttribute("warningMessage", warningMessage);
+        }
+        
+        String createNewProductErrorString = request.getParameter("createNewProductError");
+        boolean createNewProductError = Boolean.valueOf(createNewProductErrorString);
+        if (createNewProductError) {
+            String warningMessage = "Product creation failed. Please try one more time";
+            request.setAttribute("warningMessage", warningMessage);
+        }
+        
+        ProductList productList = ListsRetriever.getListsRetriever().getProductListById(productlistId);
         request.setAttribute("productList", productList);
         
         List <Product> allProducts = ProductRetriever.getProductRetriever().getAllProducts();
         request.setAttribute("allProducts", allProducts);
 
-        List<Purchase> purchaseList = PurchasesRetriever.getPurchasesRetriever().getPurchasesByListId(listId);
+        List<Purchase> purchaseList = PurchasesRetriever.getPurchasesRetriever().getPurchasesByListId(productlistId);
         request.setAttribute("purchaseList", purchaseList);
 
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF/jsp/purchases.jsp");

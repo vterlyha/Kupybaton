@@ -11,7 +11,11 @@
 <html>
 <head>
     <title>purchases of selected list</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+    
     <link rel="stylesheet" href="${app}/style/style.css">
+    
+    <script src="/Kupybaton/js/crossProductByLine.js"></script>
 </head>
 <body>
     <div class="container">
@@ -23,7 +27,7 @@
             <p class="alert-danger">${warningMessage}</p>
         </c:if>
 
-        <table class="table">
+        <table class="table" id = "NotChoosedProducts">
             <thead>
             <tr>
                 <th>Name</th>
@@ -51,8 +55,8 @@
         
     </div>
 
-	<form method="post" action="${app}/AddProductToPurchase.do">
-		<select name="productId" id="mySelect" class="selectProduct">
+	<form method="post" action="${app}/CreateNewPurchase.do">
+		<select name="productId" id="mySelect" class="select">
 			<c:forEach items="${allProducts}" var="oneProduct">
 				<option value="${oneProduct.id}">${oneProduct.name}</option>
 			</c:forEach>
@@ -60,9 +64,14 @@
 	
 		<input type="hidden" name="productlistId" value="${productList.id}" />
 		<input type = text name="quantity" placeholder="quantity" class = "quantitySelect">
-		<input type="submit" class="b2" value="Add product">
+		<input type="submit" value="Add product">
 	</form>
 	
+	<a href="${app}/CreateNewProduct.do?productlistId=${productList.id}" >
+    	<button class = "createSmth">
+        	Create New Product
+    	</button>
+    </a>
 	
 </body>
 </html>

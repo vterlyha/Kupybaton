@@ -11,7 +11,7 @@ public class CategoryInserter extends DatabaseConnect {
 	private CategoryInserter() {
 	}
 
-	public static CategoryInserter getListInserter() {
+	public static CategoryInserter getCategoryInserter() {
 		if (categoryInserter == null) {
 			categoryInserter = new CategoryInserter();
 		}

@@ -11,7 +11,7 @@ public class ProductInserter extends DatabaseConnect {
 	private ProductInserter() {
 	}
 
-	public static ProductInserter getListInserter() {
+	public static ProductInserter getProductInserter() {
 		if (productInserter == null) {
 			productInserter = new ProductInserter();
 		}

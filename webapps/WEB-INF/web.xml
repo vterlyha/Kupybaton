@@ -39,12 +39,12 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>AddProductToPurchase</servlet-name>
-		<servlet-class>com.kupybaton.web.servlets.AddProductToPurchase</servlet-class>
+		<servlet-name>CreateNewPurchase</servlet-name>
+		<servlet-class>com.kupybaton.web.servlets.CreateNewPurchase</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>AddProductToPurchase</servlet-name>
-        <url-pattern>/AddProductToPurchase.do</url-pattern>
+		<servlet-name>CreateNewPurchase</servlet-name>
+        <url-pattern>/CreateNewPurchase.do</url-pattern>
 	</servlet-mapping>
 
     <!--END OF NEW MAPPING-->

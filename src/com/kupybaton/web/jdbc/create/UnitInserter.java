@@ -11,7 +11,7 @@ public class UnitInserter extends DatabaseConnect {
 	private UnitInserter() {
 	}
 
-	public static UnitInserter getListInserter() {
+	public static UnitInserter getUnitInserter() {
 		if (unitInserter == null) {
 			unitInserter = new UnitInserter();
 		}

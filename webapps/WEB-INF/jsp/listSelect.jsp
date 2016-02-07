@@ -34,7 +34,7 @@
                     <td class="first">${list.name}</td>
                     <td class="second">${list.dateCreated}</td>
                     <td class="third aligh-center">
-                        <a href="${app}/purchases.html?listId=${list.id}">
+                        <a href="${app}/purchases.html?productlistId=${list.id}">
                             <img class="fit-image" src="${app}/images/edit_list.ico">
                         </a>
                     </td>
