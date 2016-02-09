@@ -5,7 +5,14 @@
 	id="WebApp_ID" version="3.0">
 	<display-name>Kupybaton</display-name>
 
-	<!--NEW MAPPING-->
+	<filter>
+		<filter-name>XSSFilter</filter-name>
+		<filter-class>com.kupybaton.web.filter.XSSFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>XSSFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
     <servlet>
 		<servlet-name>ListSelect</servlet-name>
