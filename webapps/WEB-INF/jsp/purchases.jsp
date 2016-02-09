@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="${app}/style/style.css">
     
     <script src="/Kupybaton/js/crossProductByLine.js"></script>
+    <script src="/Kupybaton/js/showUnitWhenProductChosen.js"></script>
 </head>
 <body>
     <div class="container">
@@ -52,26 +53,22 @@
             </tbody>
         </table>
         <br>
-        
-    </div>
 
-	<form method="post" action="${app}/CreateNewPurchase.do">
-		<select name="productId" id="mySelect" class="select">
-			<c:forEach items="${allProducts}" var="oneProduct">
-				<option value="${oneProduct.id}">${oneProduct.name}</option>
-			</c:forEach>
-		</select>
-	
-		<input type="hidden" name="productlistId" value="${productList.id}" />
-		<input type = text name="quantity" placeholder="quantity" class = "quantitySelect">
-		<input type="submit" value="Add product">
-	</form>
-	
-	<a href="${app}/CreateNewProduct.do?productlistId=${productList.id}" >
-    	<button class = "createSmth">
-        	Create New Product
-    	</button>
-    </a>
+		<form method="post" action="${app}/CreateNewPurchase.do">
+			<select name="productId" id="mySelect" class="select">
+				<c:forEach items="${allProducts}" var="oneProduct">
+					<option value="${oneProduct.id}" selected="selected">${oneProduct.name}</option>
+				</c:forEach>
+			</select> 
+			<input type="hidden" name="productlistId" value="${productList.id}" />
+			<input type=text name="quantity" placeholder="quantity"	class="quantitySelect">
+			<input type="submit" value="Add product">
+		</form>
+
+		<a href="${app}/createNewProduct.do?productlistId=${productList.id}">
+			<button class="createSmth">Create New Product</button>
+		</a>
+	</div>
 	
 </body>
 </html>

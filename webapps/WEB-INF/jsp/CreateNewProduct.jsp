@@ -6,7 +6,7 @@
 </head>
 <body>
 
-	<form method="post" action="CreateNewProduct.do">
+	<form method="post" action="createNewProduct.do">
 
 		<h1>
 			New Product

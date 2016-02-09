@@ -76,11 +76,11 @@ public class CreateNewProduct extends HttpServlet {
 				
 			} catch (NumberFormatException nfe) {
 				nfe.printStackTrace();
-				response.sendRedirect(request.getContextPath() + "/CreateNewProduct.do?createNewProductError=true&productlistId=" + productlistIdString);
+				response.sendRedirect(request.getContextPath() + "/createNewProduct.do?createNewProductError=true&productlistId=" + productlistIdString);
 				return;
 			}
 		} else {
-			response.sendRedirect(request.getContextPath() + "/CreateNewProduct.do?createNewProductError=true&productlistId=" + productlistIdString);
+			response.sendRedirect(request.getContextPath() + "/createNewProduct.do?createNewProductError=true&productlistId=" + productlistIdString);
 		}
 	}
 
