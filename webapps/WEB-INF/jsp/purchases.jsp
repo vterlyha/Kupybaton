@@ -17,10 +17,15 @@
     
     <script src="/Kupybaton/js/crossProductByLine.js"></script>
     <script src="/Kupybaton/js/showUnitWhenProductChosen.js"></script>
+    
+
 </head>
 <body>
+
+
+    
     <div class="container">
-        <h1 class="aligh-center">
+        <h1 class="aligh-center" >
             Purchase for list "${productList.name}" created on ${productList.dateCreated}
         </h1>
 
@@ -54,12 +59,15 @@
         </table>
         <br>
 
+        <p id="demo"></p>
+
 		<form method="post" action="${app}/CreateNewPurchase.do">
-			<select name="productId" id="mySelect" class="select">
+			<select name="productId" id="mySelect" class="select" onchange="myFunction()">
 				<c:forEach items="${allProducts}" var="oneProduct">
-					<option value="${oneProduct.id}" selected="selected">${oneProduct.name}</option>
+					<option id = "prod" value="${oneProduct.id}" selected="selected">${oneProduct.name}</option>
 				</c:forEach>
-			</select> 
+			</select>
+			
 			<input type="hidden" name="productlistId" value="${productList.id}" />
 			<input type=text name="quantity" placeholder="quantity"	class="quantitySelect">
 			<input type="submit" value="Add product">
@@ -69,6 +77,18 @@
 			<button class="createSmth">Create New Product</button>
 		</a>
 	</div>
-	
+
+	<script>
+	function myFunction() {
+		var choosedProductId = document.getElementsByName("productId")[0].value;
+		<c:forEach items="${allProducts}" var="oneProduct">
+			<c:if test="${oneProduct.id == choosedProductId}">
+				document.getElementById("demo").innerHTML = "${oneProduct.unit.name}";
+			</c:if>
+		</c:forEach>
+	}
+		
+	</script>
+
 </body>
 </html>

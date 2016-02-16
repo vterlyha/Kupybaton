@@ -6,20 +6,17 @@
     <link rel="stylesheet" href="${app}/style/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="aligh-center">
-            Create new list
-        </h1>
-        <c:if test="${not empty warningMessage}">
-            <p class="alert-danger">${warningMessage}</p>
-        </c:if>
+	<div class="container">
+		<h1 class="aligh-center">Create new list</h1>
+		<c:if test="${not empty warningMessage}">
+			<p class="alert-danger">${warningMessage}</p>
+		</c:if>
 
-        <div class="container">
-            <form method="post" action="addNewList.do">
-                <input type="text" name="listName" placeholder="type name of the list" class="textfield"> Name of the list
-                <input type="SUBMIT" class="button display-block" value="Save">
-            </form>
-        </div>
-    </div>
+		<form method="post" action="addNewList.do">
+			<input type="text" name="listName" placeholder="type name of the list" class="textfield"> Name of the list 
+			<input type="SUBMIT" class="button display-block" value="Save">
+		</form>
+
+	</div>
 </body>
 </html>
