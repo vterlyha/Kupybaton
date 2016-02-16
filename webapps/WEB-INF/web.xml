@@ -33,7 +33,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddNewList</servlet-name>
-        <url-pattern>/addNewList.do</url-pattern>
+        <url-pattern>/addNewList.post</url-pattern>
     </servlet-mapping>
 
 	<servlet>
@@ -51,7 +51,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CreateNewPurchase</servlet-name>
-        <url-pattern>/CreateNewPurchase.do</url-pattern>
+        <url-pattern>/CreateNewPurchase.post</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -60,7 +60,11 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CreateNewProduct</servlet-name>
-        <url-pattern>/createNewProduct.do</url-pattern>
+        <url-pattern>/createNewProduct.post</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CreateNewProduct</servlet-name>
+        <url-pattern>/createNewProduct.html</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -69,7 +73,11 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CreateNewUnit</servlet-name>
-        <url-pattern>/CreateNewUnit.do</url-pattern>
+        <url-pattern>/CreateNewUnit.html</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CreateNewUnit</servlet-name>
+        <url-pattern>/CreateNewUnit.post</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -78,8 +86,13 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CreateNewCategory</servlet-name>
-        <url-pattern>/CreateNewCategory.do</url-pattern>
+        <url-pattern>/CreateNewCategory.html</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CreateNewCategory</servlet-name>
+        <url-pattern>/CreateNewCategory.post</url-pattern>
+	</servlet-mapping>
+	
 	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

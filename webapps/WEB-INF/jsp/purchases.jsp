@@ -61,7 +61,7 @@
 
         <p id="demo"></p>
 
-		<form method="post" action="${app}/CreateNewPurchase.do">
+		<form method="post" action="${app}/CreateNewPurchase.post">
 			<select name="productId" id="mySelect" class="select" onchange="myFunction()">
 				<c:forEach items="${allProducts}" var="oneProduct">
 					<option id = "prod" value="${oneProduct.id}" selected="selected">${oneProduct.name}</option>
@@ -73,7 +73,7 @@
 			<input type="submit" value="Add product">
 		</form>
 
-		<a href="${app}/createNewProduct.do?productlistId=${productList.id}">
+		<a href="${app}/createNewProduct.html?productlistId=${productList.id}">
 			<button class="createSmth">Create New Product</button>
 		</a>
 	</div>

@@ -7,7 +7,7 @@
 <body>
 	<div class="container">
 
-		<form method="post" action="createNewProduct.do">
+		<form method="post" action="createNewProduct.post">
 
 			<h1>New Product</h1>
 
@@ -41,14 +41,14 @@
 		</form>
 
 
-		<form method="get" action="CreateNewUnit.do">
+		<form method="get" action="CreateNewUnit.html">
 			<input type="hidden" name="productlistId" value="${productList.id}" />
 			<input type="submit" class="b4" value="Create unit">
 		</form>
 
 		<br>
 
-		<form method="get" action="CreateNewCategory.do">
+		<form method="get" action="CreateNewCategory.html">
 			<input type="hidden" name="productlistId" value="${productList.id}" />
 			<input type="submit" class="b4" value="Create category">
 		</form>

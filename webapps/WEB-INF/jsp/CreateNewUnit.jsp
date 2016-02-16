@@ -13,7 +13,7 @@
 			<p class="alert-danger">${warningMessage}</p>
 		</c:if>
 
-		<form method="post" action="CreateNewUnit.do">
+		<form method="post" action="CreateNewUnit.post">
 			<p>
 				<input type="text" name="unitName" placeholder="name of the unit" class="textfield"> Name of the unit
 			</p>

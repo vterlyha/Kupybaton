@@ -12,7 +12,7 @@
 			<p class="alert-danger">${warningMessage}</p>
 		</c:if>
 
-		<form method="post" action="CreateNewCategory.do">
+		<form method="post" action="CreateNewCategory.post">
 			<p>
 				<input type="text" name="categoryName" placeholder="name of the category" class="textfield"> 
 				Name of the category

@@ -12,7 +12,7 @@
 			<p class="alert-danger">${warningMessage}</p>
 		</c:if>
 
-		<form method="post" action="addNewList.do">
+		<form method="post" action="addNewList.post">
 			<input type="text" name="listName" placeholder="type name of the list" class="textfield"> Name of the list 
 			<input type="SUBMIT" class="button display-block" value="Save">
 		</form>
