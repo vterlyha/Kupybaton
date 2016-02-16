@@ -12,7 +12,8 @@ import com.kupybaton.web.jdbc.create.PurchaseInserter;
 
 public class CreateNewPurchase extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-			
+		
+		String referer = request.getHeader("referer");
 		String productlistIdString = request.getParameter("productlistId");
 		String productIdString = request.getParameter("productId");
 		String quantityString = request.getParameter("quantity");
@@ -29,17 +30,17 @@ public class CreateNewPurchase extends HttpServlet {
 				quantity = Double.valueOf(quantityString);
 				
 				if (PurchaseInserter.getPurchaseInserter().insertNewPurchase(productlistId, productId, quantity)) {
-					response.sendRedirect(request.getContextPath() + "/purchases.html?productlistId=" + productlistId);
+					response.sendRedirect(referer);
 
 				}
 				
 			} catch (NumberFormatException nfe) {
 				nfe.printStackTrace();
-				response.sendRedirect(request.getContextPath() + "/purchases.html?purchaseEditError=true&productlistId=" + productlistIdString);
+				response.sendRedirect(referer + "&purchaseEditError=true");
 				return;
 			}
 		} else {
-			response.sendRedirect(request.getContextPath() + "/purchases.html?purchaseEditError=true&productlistId=" + productlistIdString);
+			response.sendRedirect(referer + "&purchaseEditError=true");
 		}
 	  
 	}
