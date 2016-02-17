@@ -1,5 +1,5 @@
 window.onload = function sortTable() {
-	var rows = $('#myTableChoosedProducts tbody  tr').get();
+	var rows = $('#NotChoosedProducts tbody  tr').get();
 	rows.sort(function(a, b) {
 		var A = $(a).children('td').eq(0).text().toUpperCase();
 		var B = $(b).children('td').eq(0).text().toUpperCase();
@@ -17,6 +17,6 @@ window.onload = function sortTable() {
 	});
 
 	$.each(rows, function(index, row) {
-		$('#myTableChoosedProducts').children('tbody').append(row);
+		$('#NotChoosedProducts').children('tbody').append(row);
 	});
 };

@@ -17,6 +17,7 @@
     
     <script src="/Kupybaton/js/crossProductByLine.js"></script>
     <script src="/Kupybaton/js/showUnitWhenProductChosen.js"></script>
+    <script src="/Kupybaton/js/sortUnchoosedProducts.js"></script>
     
 
 </head>
