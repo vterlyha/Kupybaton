@@ -50,7 +50,7 @@
                     <td class="second">${purchase.product.unit.name}</td>
                     <td class="third">${purchase.quantity}</td>
                     <td class="fourth aligh-center">
-                        <input type="checkbox"
+                        <input type="checkbox" class ="productChooser"
                                <c:if test="${purchase.flag}">checked</c:if>
                         >
                     </td>
