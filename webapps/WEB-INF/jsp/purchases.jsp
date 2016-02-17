@@ -82,8 +82,8 @@
 	function myFunction() {
 		var choosedProductId = document.getElementsByName("productId")[0].value;
 		<c:forEach items="${allProducts}" var="oneProduct">
-			<c:if test="${oneProduct.id == choosedProductId}">
-				document.getElementById("demo").innerHTML = "${oneProduct.unit.name}";
+			<c:if test="${oneProduct.id} == choosedProductId">
+				document.getElementById("demo").innerHTML = choosedProductId;
 			</c:if>
 		</c:forEach>
 	}
