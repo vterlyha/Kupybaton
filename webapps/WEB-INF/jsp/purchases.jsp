@@ -18,7 +18,8 @@
     <script src="/Kupybaton/js/crossProductByLine.js"></script>
     <script src="/Kupybaton/js/showUnitWhenProductChosen.js"></script>
     <script src="/Kupybaton/js/sortUnchoosedProducts.js"></script>
-    
+    <script src="/Kupybaton/js/addChoosedProducts.js"></script>
+    <script src="/Kupybaton/js/sortChoosedProducts.js"></script>
 
 </head>
 <body>
@@ -58,7 +59,15 @@
             </c:forEach>
             </tbody>
         </table>
-        <br>
+        
+		<table class="table" id="ChoosedProducts">
+			<tbody>
+			<tr>
+			</tr>
+			</tbody>
+		</table>
+
+		<br>
 
         <p id="demo"></p>
 
