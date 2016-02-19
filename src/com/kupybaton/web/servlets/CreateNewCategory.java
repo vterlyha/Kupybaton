@@ -23,7 +23,7 @@ public class CreateNewCategory extends HttpServlet {
 			productlistId = Integer.valueOf(productlistIdString);
 		} catch (NumberFormatException nfe) {
 			nfe.printStackTrace();
-			response.sendRedirect(request.getContextPath() + "/CreateNewProduct.do?listEditError=true");
+			response.sendRedirect(request.getContextPath() + "/CreateNewProduct.html?listEditError=true");
 			return;
 		}
 
@@ -56,18 +56,17 @@ public class CreateNewCategory extends HttpServlet {
 				productlistId = Integer.valueOf(productlistIdString);
 
 				if (CategoryInserter.getCategoryInserter().insertNewCategory(categoryName)) {
-					response.sendRedirect(request.getContextPath() + "/CreateNewProduct.do?productlistId=" + productlistId);
+					response.sendRedirect(request.getContextPath() + "/CreateNewProduct.html?productlistId=" + productlistId);
 
 				}
 
 			} catch (NumberFormatException nfe) {
 				nfe.printStackTrace();
-				response.sendRedirect(request.getContextPath()
-						+ "/CreateNewCategory.do?createNewCategoryError=true&productlistId=" + productlistIdString);
+				response.sendRedirect(request.getContextPath() + "/CreateNewCategory.html?createNewCategoryError=true&productlistId=" + productlistIdString);
 				return;
 			}
 		} else {
-			response.sendRedirect(request.getContextPath() + "/CreateNewCategory.do?createNewCategoryError=true&productlistId=" + productlistIdString);
+			response.sendRedirect(request.getContextPath() + "/CreateNewCategory.html?createNewCategoryError=true&productlistId=" + productlistIdString);
 		}
 	}
 

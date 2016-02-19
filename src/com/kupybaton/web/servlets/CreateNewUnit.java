@@ -57,17 +57,17 @@ public class CreateNewUnit extends HttpServlet {
 				productlistId = Integer.valueOf(productlistIdString);
 				
 				if (UnitInserter.getUnitInserter().insertNewUnit(unitName)) {
-					response.sendRedirect(request.getContextPath() + "/CreateNewProduct.do?productlistId=" + productlistId);
+					response.sendRedirect(request.getContextPath() + "/CreateNewProduct.html?productlistId=" + productlistId);
 
 				}
 				
 			} catch (NumberFormatException nfe) {
 				nfe.printStackTrace();
-				response.sendRedirect(request.getContextPath() + "/CreateNewUnit.do?createNewUnitError=true&productlistId=" + productlistIdString);
+				response.sendRedirect(request.getContextPath() + "/CreateNewUnit.html?createNewUnitError=true&productlistId=" + productlistIdString);
 				return;
 			}
 		} else {
-			response.sendRedirect(request.getContextPath() + "/CreateNewUnit.do?createNewUnitError=true&productlistId=" + productlistIdString);
+			response.sendRedirect(request.getContextPath() + "/CreateNewUnit.html?createNewUnitError=true&productlistId=" + productlistIdString);
 		}
 	}
 

@@ -34,7 +34,7 @@ public class PurchaseInserter extends DatabaseConnect {
 	}
 
 	private void insertIntoPurchase(String sql, Integer list_id, Integer product_id, Double quantity) throws SQLException {
-        getPreparedStatementForCustomInsert(sql);
+        getPreparedStatementForCustomCRUD(sql);
 		preparedStatement.setInt(1, list_id);
 		preparedStatement.setInt(2, product_id);
 		preparedStatement.setDouble(3, quantity);

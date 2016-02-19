@@ -20,18 +20,32 @@
     <script src="/Kupybaton/js/sortUnchoosedProducts.js"></script>
     <script src="/Kupybaton/js/addChoosedProducts.js"></script>
     <script src="/Kupybaton/js/sortChoosedProducts.js"></script>
+    <script src="/Kupybaton/js/showDropdownList.js"></script>
+    <script src="/Kupybaton/js/hideDropdownList.js"></script>
 
 </head>
 <body>
-
-
-    
     <div class="container">
-        <h1 class="aligh-center" >
+		<ul>
+			<li class="dropdown"><a href="#" onclick="showDropdown()" class="changeSmth">Change</a>
+				<div id="myDropdown" class="dropdown-content">
+					<input type="submit" value ="Rename list" >
+					<form method="post" action="${app}/deleteList.del">
+					<input type="hidden" name="productlistId" value="${productList.id}"/> 
+					<input type="submit" value ="Delete list" >
+					</form> 
+				</div>
+			</li>
+		</ul>
+		
+
+
+		<h1 class="aligh-center" >
             Purchase for list "${productList.name}" created on ${productList.dateCreated}
         </h1>
+        <br>
 
-        <c:if test="${not empty warningMessage}">
+		<c:if test="${not empty warningMessage}">
             <p class="alert-danger">${warningMessage}</p>
         </c:if>
 

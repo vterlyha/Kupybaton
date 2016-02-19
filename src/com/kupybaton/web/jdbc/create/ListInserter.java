@@ -49,7 +49,7 @@ public class ListInserter extends DatabaseConnect {
         return false;
 	}
 	private void insertIntoNewDataBase(String sql, String name) throws SQLException {
-        getPreparedStatementForCustomInsert(sql);
+        getPreparedStatementForCustomCRUD(sql);
 		preparedStatement.setString(1, name);
 		preparedStatement.setDate(2, new Date(Calendar.getInstance().getTimeInMillis()));
 		preparedStatement.executeUpdate();

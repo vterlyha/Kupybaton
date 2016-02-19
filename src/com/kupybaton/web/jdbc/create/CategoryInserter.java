@@ -34,7 +34,7 @@ public class CategoryInserter extends DatabaseConnect {
 	}
 
 	private void insertIntoCategory(String sql, String name) throws SQLException {
-        getPreparedStatementForCustomInsert(sql);
+        getPreparedStatementForCustomCRUD(sql);
 		preparedStatement.setString(1, name);
 		preparedStatement.executeUpdate();
 	}

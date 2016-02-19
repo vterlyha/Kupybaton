@@ -3,7 +3,6 @@ package com.kupybaton.web.servlets;
 import com.kupybaton.model.Product;
 import com.kupybaton.model.ProductList;
 import com.kupybaton.model.Purchase;
-import com.kupybaton.web.jdbc.GetLastCreatedList;
 import com.kupybaton.web.jdbc.create.ListInserter;
 import com.kupybaton.web.jdbc.retrieve.ListsRetriever;
 import com.kupybaton.web.jdbc.retrieve.ProductRetriever;

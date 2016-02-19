@@ -58,7 +58,7 @@ public abstract class DatabaseConnect {
         return preparedStatement;
     }
 
-    protected void getPreparedStatementForCustomInsert(String sql) throws SQLException {
+    protected void getPreparedStatementForCustomCRUD(String sql) throws SQLException {
         getPreparedStatement(sql);
     }
     

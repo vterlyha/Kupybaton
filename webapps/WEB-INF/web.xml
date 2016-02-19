@@ -93,6 +93,15 @@
         <url-pattern>/CreateNewCategory.post</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>DeleteList</servlet-name>
+		<servlet-class>com.kupybaton.web.servlets.DeleteList</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteList</servlet-name>
+        <url-pattern>/deleteList.del</url-pattern>
+	</servlet-mapping>
+	
 	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

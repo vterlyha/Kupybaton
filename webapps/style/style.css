@@ -3,6 +3,8 @@ body {
     width: 100%;
     font-size: 20pt;
     font-family: "segoe print";
+    margin: 0px;
+    padding: 0px;
 }
 
 .welcome-image {
@@ -100,6 +102,8 @@ h1 {
     font-size: 35pt;
     font-family: "segoe print";
     text-align: center;
+    margin: 0px;
+
 }
 
 .fit-image {
@@ -164,5 +168,53 @@ button.createSmth {
 
 button.createSmth:hover {
 	background: #FFD599;
+}
+
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+
+.dropdown-content input {
+  border: none;
+  background: none;
+  color: black;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-content input:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a, .changeSmth {
+	list-style-type: none;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+
+li a, .changeSmth.padding {
+    padding-left: 5px;
 }
 

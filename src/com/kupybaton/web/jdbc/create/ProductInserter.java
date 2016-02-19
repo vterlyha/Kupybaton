@@ -34,7 +34,7 @@ public class ProductInserter extends DatabaseConnect {
 	}
 
 	private void insertIntoProduct(String sql, String name, Integer category_id, Integer unit_id) throws SQLException {
-        getPreparedStatementForCustomInsert(sql);
+        getPreparedStatementForCustomCRUD(sql);
 		preparedStatement.setString(1, name);
 		preparedStatement.setInt(2, category_id);
 		preparedStatement.setInt(3, unit_id);
