@@ -1,4 +1,3 @@
-// Close the dropdown menu if the user clicks outside of it
 $(document).ready(function() {
 window.onclick = function(event) {
   if (!event.target.matches('.changeSmth')) {

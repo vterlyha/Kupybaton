@@ -44,6 +44,10 @@
 		<servlet-name>PurchasePage</servlet-name>
         <url-pattern>/purchases.html</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PurchasePage</servlet-name>
+        <url-pattern>/purchases.post</url-pattern>
+	</servlet-mapping>
 	
 	<servlet>
 		<servlet-name>CreateNewPurchase</servlet-name>

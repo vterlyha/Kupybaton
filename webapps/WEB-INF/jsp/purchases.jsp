@@ -29,21 +29,42 @@
 		<ul>
 			<li class="dropdown"><a href="#" onclick="showDropdown()" class="changeSmth">Change</a>
 				<div id="myDropdown" class="dropdown-content">
+					<form method="get" action="${app}/purchases.html">
+					<input type="hidden" name="changeListName" value="true"/>
+					<input type="hidden" name="productlistId" value="${productList.id}"/> 
 					<input type="submit" value ="Rename list" >
+					</form>
+					
 					<form method="post" action="${app}/deleteList.del">
 					<input type="hidden" name="productlistId" value="${productList.id}"/> 
 					<input type="submit" value ="Delete list" >
-					</form> 
+					</form>
+					 
 				</div>
 			</li>
 		</ul>
+
+
+
+		<h1 class="aligh-center">
 		
-
-
-		<h1 class="aligh-center" >
-            Purchase for list "${productList.name}" created on ${productList.dateCreated}
-        </h1>
-        <br>
+			Purchase for list
+			<c:choose>
+				<c:when test="${changeListNameBoolean}">
+				<form method="post" action="${app}/purchases.post">
+					<input type=text name="listName" placeholder="${productList.name}"	class="listNameSelect">
+					<input type="hidden" name="productlistId" value="${productList.id}"/> 
+					<input type="hidden" name="productlistDateCreated" value="${productList.dateCreated}"/>
+					<input type="submit" value ="Rename" class="listRenameButton">
+				</form>
+				</c:when>
+				<c:otherwise>
+       				"${productList.name}" 
+				</c:otherwise>
+			</c:choose>
+			created on ${productList.dateCreated}
+		</h1>
+		<br>
 
 		<c:if test="${not empty warningMessage}">
             <p class="alert-danger">${warningMessage}</p>
