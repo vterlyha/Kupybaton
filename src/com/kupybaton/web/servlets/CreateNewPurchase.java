@@ -30,7 +30,7 @@ public class CreateNewPurchase extends HttpServlet {
 				quantity = Double.valueOf(quantityString);
 				
 				if (PurchaseInserter.getPurchaseInserter().insertNewPurchase(productlistId, productId, quantity)) {
-					response.sendRedirect(referer);
+					response.sendRedirect(request.getContextPath() + "/purchases.html?productlistId=" + productlistId);
 
 				}
 				
