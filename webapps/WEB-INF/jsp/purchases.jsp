@@ -16,11 +16,12 @@
     <link rel="stylesheet" href="${app}/style/style.css">
 
     <script src="${app}/js/purchases.js"></script>
+    
 
-    <script>
+	<script>
         var productVsUnit = {
             <c:forEach items="${allProducts}" var="product" varStatus="loop">
-                '<c:out value="${product.id}"/>': '<c:out value="${product.unit.name}"/>'<c:if test="${!loop.last}">,</c:if>
+                '<c:out value="${product.id}"/>' : '<c:out value="${product.unit.name}"/>'<c:if test="${!loop.last}">,</c:if>
             </c:forEach>
         }
     </script>
@@ -31,14 +32,12 @@
 		<ul>
 			<li class="dropdown"><a href="#" onclick="showDropdown()" class="changeSmth">Change</a>
 				<div id="myDropdown" class="dropdown-content">
-					<form method="get" action="${app}/purchases.html">
+					<form method="get" action="${app}/purchases.html?productlistId=${productList.id}">
 					<input type="hidden" name="changeListName" value="true"/>
-					<input type="hidden" name="productlistId" value="${productList.id}"/>
 					<input type="submit" value ="Rename list" >
 					</form>
 
-					<form method="post" action="${app}/deleteList.del">
-					<input type="hidden" name="productlistId" value="${productList.id}"/>
+					<form method="post" action="${app}/deleteList.del?productlistId=${productList.id}">
 					<input type="submit" value ="Delete list" >
 					</form>
 
@@ -53,10 +52,8 @@
 			Purchase for list
 			<c:choose>
 				<c:when test="${changeListNameBoolean}">
-				<form method="post" action="${app}/purchases.post">
+				<form method="post" action="${app}/purchases.post?productlistId=${productList.id}&productlistDateCreated=${productList.dateCreated}">
 					<input type=text name="listName" placeholder="${productList.name}"	class="listNameSelect">
-					<input type="hidden" name="productlistId" value="${productList.id}"/>
-					<input type="hidden" name="productlistDateCreated" value="${productList.dateCreated}"/>
 					<input type="submit" value ="Rename" class="listRenameButton">
 				</form>
 				</c:when>
@@ -108,7 +105,7 @@
 
         <p id="demo"></p>
 
-		<form method="post" action="${app}/CreateNewPurchase.post">
+		<form method="post" action="${app}/CreateNewPurchase.post?productlistId=${productList.id}">
 			<select name="productId" id="mySelect" class="select">
                 <option>-----</option>
 				<c:forEach items="${allProducts}" var="oneProduct">

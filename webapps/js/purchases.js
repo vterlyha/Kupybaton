@@ -44,7 +44,7 @@ $(document).ready(function() {
     window.onclick = function(event) {
         if (!event.target.matches('.changeSmth')) {
 
-            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var dropdowns = $(".dropdown-content");
             var i;
             for (i = 0; i < dropdowns.length; i++) {
                 var openDropdown = dropdowns[i];
@@ -56,7 +56,7 @@ $(document).ready(function() {
     };
 
     $(".changeSmth").click(function() {
-        document.getElementById("myDropdown").classList.toggle("show");
+        $("#myDropdown").classList.toggle("show");
     });
 
     var $product = $("select[name='productId']");
@@ -65,3 +65,4 @@ $(document).ready(function() {
         $("#productUnit").text(productVsUnit[selectedProduct]);
     })
 });
+
