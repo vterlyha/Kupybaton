@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>purchases of selected list</title>
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js" type="text/javascript"></script>
+    <script src="${app}/js/lib/jquery-1.12.1.js" type="text/javascript"></script>
 	    
     <link rel="stylesheet" href="${app}/style/style.css">
 
@@ -20,6 +20,14 @@
 
 </head>
 <body>
+<script>
+	var productVsUnit = {
+        <c:forEach items="${allProducts}" var="product" varStatus="loop">
+            '<c:out value="${product.id}"/>' : '<c:out value="${product.unit.name}"/>'<c:if test="${!loop.last}">,</c:if>
+        </c:forEach>
+	};
+</script>
+
     <div class="container">
     
     <h1 class="aligh-center"> Purchase for list
@@ -44,14 +52,14 @@
 			<li class="dropdown"><a href="#" class="changeSmth">Change</a>
 				<div id="myDropdown" class="dropdown-content">
 					
-					<form method="get" action="${app}/purchases.html">
+					<form method="get" action="${app}/purchases.html" class="renameList">
 						<input type="hidden" name="productlistId" value="${productList.id}" />
 						<input type="hidden" name="changeListName" value="true"/>
 						<input type="submit" value ="Rename list" >
 					</form>
 
 					<form method="post" action="${app}/deleteList.del?productlistId=${productList.id}">
-						<input type="submit" value ="Delete list" >
+						<input type="submit" value ="Delete list" class="renameList">
 					</form>
 
 				</div>

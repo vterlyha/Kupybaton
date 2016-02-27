@@ -64,6 +64,7 @@ $(document).ready(function() {
     
 	$(".changeSmth").click(function() {
         $(".dropdown-content").show();
+              
     });
 	
 
@@ -79,12 +80,10 @@ $(document).ready(function() {
     $product.on("change", function() {
         var selectedProduct = $("option:selected", $product).val();
         $("#productUnit").text(productVsUnit[selectedProduct]);
-    })
+    });
     
-/*    var productVsUnit = {
-        <c:forEach items="${allProducts}" var="product" varStatus="loop">
-            '<c:out value="${product.id}"/>' : '<c:out value="${product.unit.name}"/>'<c:if test="${!loop.last}">,</c:if>
-        </c:forEach>
-    };*/
+    
+    
+   
 });
 

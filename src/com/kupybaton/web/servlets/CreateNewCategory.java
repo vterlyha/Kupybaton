@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kupybaton.model.ProductList;
+import com.kupybaton.web.filter.DataValidator;
 import com.kupybaton.web.jdbc.create.CategoryInserter;
 import com.kupybaton.web.jdbc.retrieve.ListsRetriever;
 
@@ -50,21 +51,14 @@ public class CreateNewCategory extends HttpServlet {
 
 		Integer productlistId;
 
-		if (productlistIdString != null & categoryName.length() > 0) {
-
-			try {
-				productlistId = Integer.valueOf(productlistIdString);
+		if (DataValidator.validateName(categoryName)) {
+			productlistId = Integer.valueOf(productlistIdString);
 
 				if (CategoryInserter.getCategoryInserter().insertNewCategory(categoryName)) {
 					response.sendRedirect(request.getContextPath() + "/CreateNewProduct.html?productlistId=" + productlistId);
 
 				}
 
-			} catch (NumberFormatException nfe) {
-				nfe.printStackTrace();
-				response.sendRedirect(request.getContextPath() + "/CreateNewCategory.html?createNewCategoryError=true&productlistId=" + productlistIdString);
-				return;
-			}
 		} else {
 			response.sendRedirect(request.getContextPath() + "/CreateNewCategory.html?createNewCategoryError=true&productlistId=" + productlistIdString);
 		}

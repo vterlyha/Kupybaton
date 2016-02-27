@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.kupybaton.model.Category;
 import com.kupybaton.model.ProductList;
 import com.kupybaton.model.Unit;
+import com.kupybaton.web.filter.DataValidator;
 import com.kupybaton.web.jdbc.create.ProductInserter;
 import com.kupybaton.web.jdbc.retrieve.CategoryRetriever;
 import com.kupybaton.web.jdbc.retrieve.ListsRetriever;
@@ -19,16 +20,10 @@ import com.kupybaton.web.jdbc.retrieve.UnitRetriever;
 
 public class CreateNewProduct extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		
 		String productlistIdString = request.getParameter("productlistId");
+        Integer productlistId = Integer.valueOf(productlistIdString);
 
-        Integer productlistId;
-        try {
-        	productlistId = Integer.valueOf(productlistIdString);
-        } catch (NumberFormatException nfe) {
-            nfe.printStackTrace();
-            response.sendRedirect(request.getContextPath() + "/purchases.html?createNewProductError=true");
-            return;
-        }
 		response.setContentType("text/html");
 		
 		String createNewProductErrorString = request.getParameter("createNewProductError");
@@ -62,9 +57,8 @@ public class CreateNewProduct extends HttpServlet {
 		Integer unitId;
 		Integer categoryId;
 		
-		if (productlistIdString != null & unitIdString != null & categoryIdString != null & productName.length()>0) {
-			
-			try {
+		if (DataValidator.validateName(productName)) {
+
 				productlistId = Integer.valueOf(productlistIdString);
 				unitId = Integer.valueOf(unitIdString);
 				categoryId = Integer.valueOf(categoryIdString);
@@ -74,11 +68,6 @@ public class CreateNewProduct extends HttpServlet {
 
 				}
 				
-			} catch (NumberFormatException nfe) {
-				nfe.printStackTrace();
-				response.sendRedirect(request.getContextPath() + "/createNewProduct.html?createNewProductError=true&productlistId=" + productlistIdString);
-				return;
-			}
 		} else {
 			response.sendRedirect(request.getContextPath() + "/createNewProduct.html?createNewProductError=true&productlistId=" + productlistIdString);
 		}

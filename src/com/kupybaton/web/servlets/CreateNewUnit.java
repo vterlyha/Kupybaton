@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kupybaton.model.ProductList;
+import com.kupybaton.web.filter.DataValidator;
 import com.kupybaton.web.jdbc.create.UnitInserter;
 import com.kupybaton.web.jdbc.retrieve.ListsRetriever;
 
@@ -51,9 +52,8 @@ public class CreateNewUnit extends HttpServlet {
 				
 		Integer productlistId;
 		
-		if (productlistIdString != null & unitName.length()>0) {
-			
-			try {
+		if (DataValidator.validateName(unitName)) {
+
 				productlistId = Integer.valueOf(productlistIdString);
 				
 				if (UnitInserter.getUnitInserter().insertNewUnit(unitName)) {
@@ -61,11 +61,6 @@ public class CreateNewUnit extends HttpServlet {
 
 				}
 				
-			} catch (NumberFormatException nfe) {
-				nfe.printStackTrace();
-				response.sendRedirect(request.getContextPath() + "/CreateNewUnit.html?createNewUnitError=true&productlistId=" + productlistIdString);
-				return;
-			}
 		} else {
 			response.sendRedirect(request.getContextPath() + "/CreateNewUnit.html?createNewUnitError=true&productlistId=" + productlistIdString);
 		}

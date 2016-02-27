@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kupybaton.web.filter.DataValidator;
 import com.kupybaton.web.jdbc.create.PurchaseInserter;
 
 
@@ -22,9 +23,8 @@ public class CreateNewPurchase extends HttpServlet {
 		Integer productId;
 		Double quantity;
 		
-		if (productlistIdString != null & productIdString != null & quantityString.length()>0) {
-			
-			try {
+		if (DataValidator.validatePurchaseCreate (productIdString, quantityString)) {
+
 				productlistId = Integer.valueOf(productlistIdString);
 				productId = Integer.valueOf(productIdString);
 				quantity = Double.valueOf(quantityString);
@@ -34,11 +34,6 @@ public class CreateNewPurchase extends HttpServlet {
 
 				}
 				
-			} catch (NumberFormatException nfe) {
-				nfe.printStackTrace();
-				response.sendRedirect(referer + "&purchaseEditError=true");
-				return;
-			}
 		} else {
 			response.sendRedirect(referer + "&purchaseEditError=true");
 		}

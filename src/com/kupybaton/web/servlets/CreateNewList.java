@@ -1,5 +1,6 @@
 package com.kupybaton.web.servlets;
 
+import com.kupybaton.web.filter.DataValidator;
 import com.kupybaton.web.jdbc.create.ListInserter;
 
 import javax.servlet.RequestDispatcher;
@@ -24,7 +25,7 @@ public class CreateNewList extends HttpServlet {
 
         boolean isListAddedSuccessfully = false;
 
-        if (listName != null && listName.length() > 0) {
+        if (DataValidator.validateName(listName)) {
             isListAddedSuccessfully = ListInserter.getListInserter().insertNewList(listName);
         }
 
