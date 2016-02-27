@@ -19,15 +19,7 @@ public class CreateNewUnit extends HttpServlet {
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String productlistIdString = request.getParameter("productlistId");
-
-        Integer productlistId;
-        try {
-        	productlistId = Integer.valueOf(productlistIdString);
-        } catch (NumberFormatException nfe) {
-            nfe.printStackTrace();
-            response.sendRedirect(request.getContextPath() + "/lists.html?listEditError=true");
-            return;
-        }
+        Integer productlistId = Integer.valueOf(productlistIdString);
 		
 		response.setContentType("text/html");
 		
