@@ -11,58 +11,52 @@
 <html>
 <head>
     <title>purchases of selected list</title>
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
-
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js" type="text/javascript"></script>
+	    
     <link rel="stylesheet" href="${app}/style/style.css">
 
     <script src="${app}/js/purchases.js"></script>
-    
 
-	<script>
-        var productVsUnit = {
-            <c:forEach items="${allProducts}" var="product" varStatus="loop">
-                '<c:out value="${product.id}"/>' : '<c:out value="${product.unit.name}"/>'<c:if test="${!loop.last}">,</c:if>
-            </c:forEach>
-        }
-    </script>
 
 </head>
 <body>
     <div class="container">
-		<ul>
-			<li class="dropdown"><a href="#" onclick="showDropdown()" class="changeSmth">Change</a>
-				<div id="myDropdown" class="dropdown-content">
-					<form method="get" action="${app}/purchases.html?productlistId=${productList.id}">
-					<input type="hidden" name="changeListName" value="true"/>
-					<input type="submit" value ="Rename list" >
-					</form>
-
-					<form method="post" action="${app}/deleteList.del?productlistId=${productList.id}">
-					<input type="submit" value ="Delete list" >
-					</form>
-
-				</div>
-			</li>
-		</ul>
-
-
-
-		<h1 class="aligh-center">
-
-			Purchase for list
+    
+    <h1 class="aligh-center"> Purchase for list
 			<c:choose>
+			
 				<c:when test="${changeListNameBoolean}">
-				<form method="post" action="${app}/purchases.post?productlistId=${productList.id}&productlistDateCreated=${productList.dateCreated}">
+				<form method="post" action="${app}/changeListName.post">
+					<input type="hidden" name="productlistId" value="${productList.id}" />
 					<input type=text name="listName" placeholder="${productList.name}"	class="listNameSelect">
 					<input type="submit" value ="Rename" class="listRenameButton">
 				</form>
 				</c:when>
+				
 				<c:otherwise>
        				"${productList.name}"
 				</c:otherwise>
 			</c:choose>
 			created on ${productList.dateCreated}
 		</h1>
+		
+		<ul>
+			<li class="dropdown"><a href="#" class="changeSmth">Change</a>
+				<div id="myDropdown" class="dropdown-content">
+					
+					<form method="get" action="${app}/purchases.html">
+						<input type="hidden" name="productlistId" value="${productList.id}" />
+						<input type="hidden" name="changeListName" value="true"/>
+						<input type="submit" value ="Rename list" >
+					</form>
+
+					<form method="post" action="${app}/deleteList.del?productlistId=${productList.id}">
+						<input type="submit" value ="Delete list" >
+					</form>
+
+				</div>
+			</li>
+		</ul>
 		<br>
 
 		<c:if test="${not empty warningMessage}">
@@ -70,7 +64,13 @@
         </c:if>
 
         <table class="table" id = "NotChoosedProducts">
-            <thead>
+			<colgroup>
+				<col class="first">
+				<col class="second">
+				<col class="third">
+				<col class="fourth">
+			</colgroup>
+			<thead>
             <tr>
                 <th>Name</th>
                 <th>Unit</th>
@@ -81,10 +81,10 @@
             <tbody>
             <c:forEach items="${purchaseList}" var="purchase">
                 <tr>
-                    <td class="first">${purchase.product.name}</td>
-                    <td class="second">${purchase.product.unit.name}</td>
+                    <td>${purchase.product.name}</td>
+                    <td>${purchase.product.unit.name}</td>
                     <td class="third">${purchase.quantity}</td>
-                    <td class="fourth aligh-center">
+                    <td class="fourth">
                         <input type="checkbox" class ="productChooser"
                                <c:if test="${purchase.flag}">checked</c:if>
                         >
@@ -95,9 +95,13 @@
         </table>
 
 		<table class="table" id="ChoosedProducts">
+			<colgroup>
+				<col class="first">
+				<col class="second">
+				<col class="third">
+				<col class="fourth">
+			</colgroup>
 			<tbody>
-			<tr>
-			</tr>
 			</tbody>
 		</table>
 

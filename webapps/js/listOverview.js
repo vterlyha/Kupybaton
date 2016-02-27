@@ -1,5 +1,5 @@
 window.onload = function() {
-    $("#addNewList").addEventListener("click", function() {
+    $("#addNewList").click(function() {
         window.location.href = pageContext + "/createNewList.html";
     })
 };

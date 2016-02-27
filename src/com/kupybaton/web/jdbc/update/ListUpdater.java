@@ -20,11 +20,11 @@ public class ListUpdater extends DatabaseConnect {
 		return listUpdater;
 	}
 
-	public boolean updateList(String name, Integer id, Date dateCreated) {
-		String sql = "UPDATE list SET name=? WHERE id=? AND date_cr=?";
+	public boolean updateList(String name, Integer id) {
+		String sql = "UPDATE list SET name=? WHERE id=?";
 
 		try {
-			updateListName(sql, name, id, dateCreated);
+			updateListName(sql, name, id);
             return true;
 		} catch (SQLException e) {
             e.printStackTrace();
@@ -34,11 +34,10 @@ public class ListUpdater extends DatabaseConnect {
         return false;
 	}
 
-	private void updateListName (String sql, String name, Integer id, Date dateCreated) throws SQLException {
+	private void updateListName (String sql, String name, Integer id) throws SQLException {
         getPreparedStatementForCustomCRUD(sql);
 		preparedStatement.setString(1, name);
 		preparedStatement.setInt(2, id);
-		preparedStatement.setDate(3, dateCreated);
 		preparedStatement.executeUpdate();
 	}
 	

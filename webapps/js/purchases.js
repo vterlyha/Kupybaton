@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	
-	window.onload = function sortTable() {		
+	window.onload = function () {		
 		 var rows = $('#NotChoosedProducts tbody  tr');		
 		 rows.sort(function(a, b) {		
 			var A = $(a).children('td').eq(0).text().toUpperCase();		
@@ -23,28 +23,22 @@ $(document).ready(function() {
 		});
 		
 	};
-		 
+		
+	
     $('tbody input[type="checkbox"]').change(function() {
-        if (this.checked) {
-            var a = $(this.closest('tr'));
-            a.css({
+    	if (this.checked) {
+            
+    		var row = $(this.closest('tr'));
+            row.css({
                       'text-decoration' : 'line-through'
                   });
-        }
-    });
-
-	$('tbody input[type="checkbox"]').change(function() {
-		if (this.checked) {
-			var row = $(this.closest('tr'));
+                   
 			row.remove().clone();
 			$('#ChoosedProducts').children('tbody').append(row);
 
 		}
-
-	});
-	
-	$('tbody input[type="checkbox"]').change(function sortTable() {
-        var rows = $('#ChoosedProducts tbody  tr');
+    	
+    	var rows = $('#ChoosedProducts tbody  tr');
         rows.sort(function(a, b) {
             var A = $(a).children('td').eq(0).text().toUpperCase();
             var B = $(b).children('td').eq(0).text().toUpperCase();
@@ -67,8 +61,9 @@ $(document).ready(function() {
         
     });
 
+    
 	$(".changeSmth").click(function() {
-        $("#myDropdown").show();
+        $(".dropdown-content").show();
     });
 	
 
@@ -85,5 +80,11 @@ $(document).ready(function() {
         var selectedProduct = $("option:selected", $product).val();
         $("#productUnit").text(productVsUnit[selectedProduct]);
     })
+    
+/*    var productVsUnit = {
+        <c:forEach items="${allProducts}" var="product" varStatus="loop">
+            '<c:out value="${product.id}"/>' : '<c:out value="${product.unit.name}"/>'<c:if test="${!loop.last}">,</c:if>
+        </c:forEach>
+    };*/
 });
 

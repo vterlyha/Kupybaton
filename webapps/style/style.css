@@ -1,3 +1,4 @@
+
 body {
     background: #EEE8AA;
     width: 100%;
@@ -47,6 +48,7 @@ div.container {
 
 table {
     border-collapse: collapse;
+    
 }
 
 table, th, td {
@@ -68,7 +70,8 @@ tr:hover {
     font-size: 24px;
     text-align: left;
     margin: auto;
-    width: 75%;
+    width: 65%;
+    table-layout: fixed;
 }
 
 .table thead {
@@ -79,22 +82,25 @@ tr:hover {
 .table td {
     vertical-align: middle;
     height: 30px;
+    overflow: hidden;
 }
 
-td.first {
-    width: 40%;
+.first {
+    width: 250px;
 }
 
-td.second {
-    width: 30%;
+.second {
+    width: 150px;
 }
 
-td.third {
-    width: 10%;
+.third {
+    width: 100px;
+    text-align: center;
 }
 
-td.fourth {
-    width: 10%;
+.fourth {
+    width: 100px;
+   	text-align: center;
 }
 
 h1 {

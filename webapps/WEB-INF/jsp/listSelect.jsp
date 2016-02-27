@@ -4,6 +4,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="${app}/style/style.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js" type="text/javascript"></script>
     <script type="application/javascript" src="${app}/js/listOverview.js"></script>
 </head>
 
